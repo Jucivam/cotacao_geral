@@ -1155,6 +1155,7 @@ button:hover {
     max-height: 2000px;
     overflow: hidden;
     margin-top: 8px;
+    max-height: 999999px;
 }
 
 .section.collapsed {

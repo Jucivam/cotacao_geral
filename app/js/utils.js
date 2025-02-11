@@ -948,14 +948,23 @@ export async function customModal_V2({ acao = null, tipoAcao = 'confirm', titulo
     //==========RETORNA UMA PROMISE QUE SERÁ RESOLVIDA QUANDO O USUÁRIO INTERAGIR COM O MODAL==========\\
     return new Promise((resolve) => {
         confirmButton.addEventListener('click', () => {
-            alternVisibEl(false);
-            tratarRespModal({ acao: acao, infoInserida: inputElement ? inputElement.value : null }).then(result => {
-                if (result === true) {
-                    overlay.remove();
-                }
-                resolve(result);
-            });
+            if(tipoAcao === 'confirm')
+            {
+                alternVisibEl(false);
+                tratarRespModal({ acao: acao, infoInserida: inputElement ? inputElement.value : null }).then(result => {
+                    if (result === true) {
+                        overlay.remove();
+                    }
+                    resolve(result);
+                });
+
+            }else 
+            {
+                overlay.remove();
+                resolve(true);
+            }
         });
+        
         if (cancelButton) {
             cancelButton.addEventListener('click', () => {
                 overlay.remove();
@@ -996,7 +1005,7 @@ export async function tratarRespModal({ acao, infoInserida = null }) {
             "confirmar_pag_ahreas",
             "suspender_pagamento"
         ].includes(acao)) {
-            /*
+        /*
         const valido = validateFields(acao);
         if (!valido) return false;
         */
@@ -1032,7 +1041,7 @@ async function prepararParaSalvar(acao, infoInserida = null) {
     const url = 'https://guillaumon.zohocreatorportal.com/';
     const pgtoAnt = document.getElementById('pag_antecipado').checked;
     const statusMap = {
-        salvar_cot: { 
+        salvar_cot: {
             status: globais.pag === "criar_numero_de_PDC" ? 
                 null : 
                 globais.pag === "ajustar_compra_compras"?
@@ -1172,11 +1181,11 @@ export function desabilitarCampos() {
     let formsParaManterHabilitados = [];
     let aTagsParaManterHabilitados = [];
 
-    if (globais.pag === 'editar_cotacao') {
+    if (globais.pag === 'editar_cotacao' || globais.pag === 'ajustar_cotacao_DP' || globais.pag === 'ajustar_cotacao' || globais.pag === 'ajustar_compra_compras') {
         return;
     }
     if (globais.pag === "ajustar_compra_compras" || globais.pag === "checagem_final") {
-        camposParaManterHabilitados = ["Entidade", "Datas", "Valor", "quantidade", "valor-unit"];//name
+        camposParaManterHabilitados = ["Entidade", "Datas", "Valor", "quantidade", "valor-unit", ""];//name
         botoesParaManterHabilitados = ["add-parcela", "remover-parcela", "add-linha-nf", "remover-linha-nf"];//classe
         formsParaManterHabilitados = ["form-pagamento", "dados-nf", "form-classificacao"];//forms
     } else if (globais.pag === "criar_numero_de_PDC") {
@@ -1228,9 +1237,18 @@ export function desabilitarCampos() {
         // Verifica se o elemento deve ser mantido visível
         const temClasseVisivel = camposParaManterHabilitados.some(classe => elemento.classList.contains(classe));
         if (temClasseVisivel) {
+            if(elemento.tagName.toLowerCase() === 'tr'){
+                const tds = elemento.querySelector('td');
+                tds.forEach(td => {
+                    td.contentEditable = true;
+                    td.style.cursor = 'text';
+                })
+            }else
+            {
+                elemento.contentEditable = true; // Habilita para edição
+                elemento.style.cursor = 'text'; // Altera o cursor para indicar que é editável
 
-            elemento.contentEditable = true; // Habilita para edição
-            elemento.style.cursor = 'text'; // Altera o cursor para indicar que é editável
+            }
 
         } else {
             elemento.contentEditable = false; // Desabilita para edição
@@ -1271,6 +1289,18 @@ export function validateFields(action) {
     let all = {};
     let atLeastOne = {};
     let otherFormats = {};
+    fieldNames = {
+        'Entidade': 'Entidade',
+        'Tipo_de_solicitacao': 'Tipo de Solicitação',
+        'Descricao_da_compra': 'Descrição da Compra',
+        'Utilizacao': 'Utilização',
+        'id_forn': 'Fornecedor',
+        'quantidade': 'Quantidade',
+        'valor-unit': 'Valor Unitário',
+        'supplier-checkbox': 'Fornecedor Aprovado',
+        'tipo-pag': 'Tipo de Pagamento',
+        'parcela': 'Parcelas'
+    }
 
     switch (action) {
         case 'solicitar_aprovacao_sindico':
@@ -1303,40 +1333,20 @@ export function validateFields(action) {
     }
 
     function validateField(field) {
-        const errorMessage = document.createElement('span');
-        errorMessage.id = 'error-message';
-        errorMessage.textContent = 'Este campo é obrigatório';
-        errorMessage.style.color = 'red';
-
+        
         if (field.tagName === 'INPUT' || field.tagName === 'TEXTAREA') {
             // Verifica o valor do campo
             if (field.value === '') {
-                field.addEventListener('input', () => errorMessage.remove());
-                field.parentNode.appendChild(errorMessage);
-                field.parentNode.style.display = 'grid';
-                
-                field.focus();
+                return false;
 
-                const overlayElement = document.querySelector(".customConfirm-overlay-div");
-                if (overlayElement) {
-                    overlayElement.remove();
-                }
             }
-
+            
         } else if (field.tagName === 'SELECT') {
             // Verifica se o campo select tem um valor selecionado
             const selectedOption = field.options[field.selectedIndex];
             if (selectedOption.classList.contains('invalid')) {
-                field.addEventListener('input', () => errorMessage.remove());
-                field.parentNode.appendChild(errorMessage);
-                field.parentNode.style.display = 'grid';
-                
-                field.focus();
+                return false;
 
-                const overlayElement = document.querySelector(".customConfirm-overlay-div");
-                if (overlayElement) {
-                    overlayElement.remove();
-                }
             }
 
         } else if (field.tagName === 'TD') {
@@ -1352,12 +1362,39 @@ export function validateFields(action) {
         }
     }
 
+    const errorMessage = document.createElement('span');
+    errorMessage.id = 'error-message';
+    errorMessage.textContent = 'Este campo é obrigatório';
+    errorMessage.style.color = 'red';
+
+
     //=====All values are required=====\\
+    for (let [key, value] of Object.entries(all)) {
+        if (value === 'dataset')
+        {
+            const campo = document.querySelector(`[data-${key}]`);
+
+            const overlayElements =    document.getElementsByClassName("customConfirm-overlay-div");
+            if(overlayElements)
+            {
+                Array.from(overlayElements).forEach(el => el.remove());
+            }
+
+            customModal_V2({acao: "alert_campo_obrig",tipoAcao: "alert", titulo: "Campo obrigatório não preenchido", mensagem: `O campo "${fieldNames[key]}" deve ser preenchido.`, confirmText: "Ok"});
+            throw new Error(`Campo obrigatório não preenchido`);
+        }
+    }
+
+
+    //=====All values are required=====\\
+    /*
     for (let [key, value] of Object.entries(all)) {
         if (value === 'dataset') {
             if (!document.querySelector(`[data-${key}]`)) {
+
                 alert(`O campo "${key}" deve ser preenchido.`);
                 document.getElementsByClassName("customConfirm-overlay-div").remove();
+
             }
         } else {
             let campos;
@@ -1376,19 +1413,54 @@ export function validateFields(action) {
                 console.log("campo.innerText: ", campo.innerText);
                 console.log("campo.value: ", campo.value);
 
-                validateField(campo);
+                const ret = validateField(campo);
+                if(!ret) {
+                    console.log("ret: ", ret);
+                    campo.addEventListener('input', () => errorMessage.remove());
+                    campo.parentNode.appendChild(errorMessage);
+                    campo.parentNode.style.display = 'grid';
+                    
+                    campo.focus();
+
+                    const overlayElement = document.querySelector(".customConfirm-overlay-div");
+                    if (overlayElement) {
+                        overlayElement.remove();
+                    }
+
+                    return false
+                }
             })
         }
     }
+        */
 
     //=====At least one value is required=====\\
     for (let [key, value] of Object.entries(atLeastOne)) {
         console.log("key: ", key, "value: ", value);
         if (value === 'class') {
             const elements = document.querySelectorAll(`.${key}`);
-            if (![...elements].some(element => element.checked || element.value.trim() !== '')) {
-                throw new Error(`O campo "${key}" deve ser preenchido.`);
-                return false;
+            let ret = false;
+            elements.forEach(element => {
+                console.log("element: ", element);
+                ret = validateField(element);
+                if(ret) {
+                    return true;
+                }
+            })
+
+            if(!ret) {
+                campo.addEventListener('input', () => errorMessage.remove());
+                campo.parentNode.appendChild(errorMessage);
+                campo.parentNode.style.display = 'grid';
+                
+                campo.focus();
+
+                const overlayElement = document.querySelector(".customConfirm-overlay-div");
+                if (overlayElement) {
+                    overlayElement.remove();
+                }
+
+                throw new Error(`Campo obrigatório não preenchido`);
             }
         }
     }
