@@ -996,8 +996,10 @@ export async function tratarRespModal({ acao, infoInserida = null }) {
             "confirmar_pag_ahreas",
             "suspender_pagamento"
         ].includes(acao)) {
+            /*
         const valido = validateFields(acao);
         if (!valido) return false;
+        */
         await prepararParaSalvar(acao, infoInserida);
     }
     if (log) console.log("----------RESPOSTA TRATADA, RETORNANDO TRUE----------");
@@ -1325,7 +1327,16 @@ export function validateFields(action) {
             // Verifica se o campo select tem um valor selecionado
             const selectedOption = field.options[field.selectedIndex];
             if (selectedOption.classList.contains('invalid')) {
-                throw new Error(`O campo "${field.name}" deve ser preenchido.`);
+                field.addEventListener('input', () => errorMessage.remove());
+                field.parentNode.appendChild(errorMessage);
+                field.parentNode.style.display = 'grid';
+                
+                field.focus();
+
+                const overlayElement = document.querySelector(".customConfirm-overlay-div");
+                if (overlayElement) {
+                    overlayElement.remove();
+                }
             }
 
         } else if (field.tagName === 'TD') {

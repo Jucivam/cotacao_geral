@@ -231,6 +231,7 @@ export function criarBotao({page = null, removeExistingButtons = false})
 
             case "checagem_final":
                 configurarBotao('confirm-purchase-btn adjust-btn', 'Sol. aut. Síndico', 'enviar_p_assinatura', null, 'Deseja enviar o PDC para que o SÍNDICO e o SUBSÍNDICO possa autorizar?');
+                setTimeout(() => criarBotao({page: "arquivar_cotacao"}), 0);
                 break;
             
             case "ver_PDC_c_ret":
