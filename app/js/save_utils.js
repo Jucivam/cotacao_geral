@@ -519,10 +519,27 @@ async function getGalleryFiles() {
     });
 }
 
+/*ANTIGA
 function getItemType(base64String) {
+
     const match = base64String.match(/^data:([^;]+);base64,/);
+
     return match && match[1];
 }
+    */
+
+function getItemType(base64String) {
+    const match = base64String.match(/^data:([^;]+);base64,/);
+    const fileTypeMap = {
+      'vnd.openxmlformats-officedocument.spreadsheetml.sheet': 'xlsx',
+      'vnd.openxmlformats-officedocument.wordprocessingml.document': 'docx',
+      'vnd.openxmlformats-officedocument.presentationml.presentation': 'pptx',
+      'plain': 'txt',
+      // adicione mais tipos de arquivos aqui, se necessário
+    };
+  
+    return match && (fileTypeMap[match[1]] || match[1]);
+  }
 
 function getItemData(base64String) {
     const fileType = getItemType(base64String);
@@ -544,6 +561,9 @@ function getItemData(base64String) {
     */
     return file;
 }
+
+
+
 
 //================================================================//
 //===========================SALVA TUDO===========================//

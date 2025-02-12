@@ -1005,10 +1005,12 @@ export async function tratarRespModal({ acao, infoInserida = null }) {
             "confirmar_pag_ahreas",
             "suspender_pagamento"
         ].includes(acao)) {
+
         /*
         const valido = validateFields(acao);
         if (!valido) return false;
         */
+
         await prepararParaSalvar(acao, infoInserida);
     }
     if (log) console.log("----------RESPOSTA TRATADA, RETORNANDO TRUE----------");
@@ -1040,13 +1042,22 @@ async function prepararParaSalvar(acao, infoInserida = null) {
     const paramExtra = {};
     const url = 'https://guillaumon.zohocreatorportal.com/';
     const pgtoAnt = document.getElementById('pag_antecipado').checked;
+
+    let stats_salvarCot = "Propostas criadas";
+    if(globais.pag === "criar_numero_de_PDC")
+    {
+        stats_salvarCot = null;
+    }else if(globais.pag === "ajustar_compra_compras")
+    {
+        stats_salvarCot = "Recebimento confirmado";
+    }else if(globais.pag === "checagem_final")
+    {
+        stats_salvarCot = "Enviado para checagem final";
+    }
+
     const statusMap = {
         salvar_cot: {
-            status: globais.pag === "criar_numero_de_PDC" ? 
-                null : 
-                globais.pag === "ajustar_compra_compras"?
-                    "Recebimento confirmado":
-                    "Propostas criadas" 
+            status: stats_salvarCot    
         },
         criar_cotacao: { status: globais.pag === "criar_numero_de_PDC" ? null : "Propostas criadas" },
         editar_cot: { status: globais.pag === "criar_numero_de_PDC" ? null : "Propostas criadas" },
@@ -1076,10 +1087,10 @@ async function prepararParaSalvar(acao, infoInserida = null) {
         enviar_p_checagem_final: { status: "Enviado para checagem final"},
         tratar_control: { paramsExtraPDC: {Status_controladoria: "Tratado" } },
         enviar_p_assinatura: { status: "Assinatura Confirmada Controladoria" },
-        autorizar_pagamento_subsindico: { status: "Autorizado para pagamento" },
+        autorizar_pagamento_subsindico: { status: "Assinatura Confirmada Sub Sindico" },
         autorizar_pagamento_sindico: { status: "Assinatura Confirmada Sindico" },
         confirmar_todas_as_assinaturas: { status: "Autorizado para pagamento" },
-        lancar_pdc_ahreas: { paramsExtraPDC: { Status_Guillaumon: "Lançado no ahreas", num_lanc_ahreas : infoInserida} },
+        lancar_pdc_ahreas: { status: "Lançado no ERP", paramsExtraPDC: { Status_Guillaumon: "Lançado no ahreas", num_lanc_ahreas : infoInserida} },
         confirmar_pag_ahreas: { status: "Pagamento realizado", paramsExtraPDC: {Status_Guillaumon: "Pagamento confirmado"}},
         suspender_pagamento:{ status: "Pagamento suspenso"}
     };
@@ -1242,7 +1253,8 @@ export function desabilitarCampos() {
                 tds.forEach(td => {
                     td.contentEditable = true;
                     td.style.cursor = 'text';
-                })
+                });
+
             }else
             {
                 elemento.contentEditable = true; // Habilita para edição
@@ -1253,6 +1265,7 @@ export function desabilitarCampos() {
         } else {
             elemento.contentEditable = false; // Desabilita para edição
             elemento.style.cursor = 'not-allowed'; // Altera o cursor para indicar que não é editável
+
         }
     });
 
@@ -1264,9 +1277,11 @@ export function desabilitarCampos() {
         if (temClasseVisivel) {
             elemento.style.cursor = 'pointer'; // Altera o cursor para indicar que é clicável
             elemento.style.removeProperty('pointer-events');
+
         } else {
             elemento.style.cursor = 'not-allowed'; // Altera o cursor para indicar que não é clicável
             elemento.style.pointerEvents = 'none';
+
         }
     });
 
@@ -1275,11 +1290,13 @@ export function desabilitarCampos() {
         const formulario = document.querySelector(`#${formClass}`);
         if (formulario) {
             const camposFormulario = formulario.querySelectorAll('input, textarea, select');
+
             camposFormulario.forEach(campo => {
                 campo.disabled = false; // Habilita o campo
                 campo.readOnly = false; // Remove o atributo readonly
                 // Altera o cursor dependendo do tipo de campo
                 campo.style.cursor = campo.tagName.toLowerCase() === 'select' ? 'pointer' : 'text';
+
             });
         }
     });
@@ -1289,7 +1306,7 @@ export function validateFields(action) {
     let all = {};
     let atLeastOne = {};
     let otherFormats = {};
-    fieldNames = {
+    const fieldNames = {
         'Entidade': 'Entidade',
         'Tipo_de_solicitacao': 'Tipo de Solicitação',
         'Descricao_da_compra': 'Descrição da Compra',
@@ -1300,7 +1317,7 @@ export function validateFields(action) {
         'supplier-checkbox': 'Fornecedor Aprovado',
         'tipo-pag': 'Tipo de Pagamento',
         'parcela': 'Parcelas'
-    }
+    };
 
     switch (action) {
         case 'solicitar_aprovacao_sindico':
@@ -1323,14 +1340,12 @@ export function validateFields(action) {
                 'parcela': 'class'
             }
 
-
-
             break;
         case '':
             break;
         default:
             break;
-    }
+    };
 
     function validateField(field) {
         
@@ -1360,7 +1375,7 @@ export function validateFields(action) {
             throw new Error(`Tipo de campo não reconhecido: ${field.tagName}`);
 
         }
-    }
+    };
 
     const errorMessage = document.createElement('span');
     errorMessage.id = 'error-message';
@@ -1370,10 +1385,22 @@ export function validateFields(action) {
 
     //=====All values are required=====\\
     for (let [key, value] of Object.entries(all)) {
+        let campos;
         if (value === 'dataset')
         {
-            const campo = document.querySelector(`[data-${key}]`);
+            campos = document.querySelector(`[data-${key}]`);
 
+        }if (['name'].includes(value))//Busca por atributos
+        {
+            campos = document.querySelectorAll(`[${value}="${key}"]`);
+
+        } else if (['class'].includes(value))//busca por classe (Aparentemente não é um atributo)
+        {
+            campos = document.querySelectorAll(`.${key}`);
+
+        }
+
+        if(!campos) {
             const overlayElements =    document.getElementsByClassName("customConfirm-overlay-div");
             if(overlayElements)
             {
@@ -1382,44 +1409,15 @@ export function validateFields(action) {
 
             customModal_V2({acao: "alert_campo_obrig",tipoAcao: "alert", titulo: "Campo obrigatório não preenchido", mensagem: `O campo "${fieldNames[key]}" deve ser preenchido.`, confirmText: "Ok"});
             throw new Error(`Campo obrigatório não preenchido`);
-        }
-    }
 
-
-    //=====All values are required=====\\
-    /*
-    for (let [key, value] of Object.entries(all)) {
-        if (value === 'dataset') {
-            if (!document.querySelector(`[data-${key}]`)) {
-
-                alert(`O campo "${key}" deve ser preenchido.`);
-                document.getElementsByClassName("customConfirm-overlay-div").remove();
-
-            }
-        } else {
-            let campos;
-            if (['name'].includes(value))//Busca por atributos
-            {
-                campos = document.querySelectorAll(`[${value}="${key}"]`);
-
-            } else if (['class'].includes(value))//busca por classe (Aparentemente não é um atributo)
-            {
-                campos = document.querySelectorAll(`.${key}`);
-
-            }
-
+        }else
+        {
             campos.forEach(campo => {
-                console.log("campo: ", campo);
-                console.log("campo.innerText: ", campo.innerText);
-                console.log("campo.value: ", campo.value);
-
                 const ret = validateField(campo);
                 if(!ret) {
-                    console.log("ret: ", ret);
                     campo.addEventListener('input', () => errorMessage.remove());
                     campo.parentNode.appendChild(errorMessage);
                     campo.parentNode.style.display = 'grid';
-                    
                     campo.focus();
 
                     const overlayElement = document.querySelector(".customConfirm-overlay-div");
@@ -1427,13 +1425,16 @@ export function validateFields(action) {
                         overlayElement.remove();
                     }
 
-                    return false
-                }
-            })
-        }
-    }
-        */
+                    return false;
 
+                };
+            });
+
+        }
+            
+    }
+
+    ////////////////////////////////////////////////////////////////////////
     //=====At least one value is required=====\\
     for (let [key, value] of Object.entries(atLeastOne)) {
         console.log("key: ", key, "value: ", value);
