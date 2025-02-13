@@ -1193,7 +1193,7 @@ export function calcularValorTotalPagar() {
 //====================ANEXOS====================//
 //==============================================//
 export async function preencherListaAnexosV2(anexos) {
-    const typesToView = ['JPG', 'JPEG', 'PNG', 'GIF', 'PDF'];
+    const typesToView = ['JPG', 'JPEG', 'PNG', 'GIF'];
     await ZOHO.CREATOR.init();
     const galleryElement = document.getElementById('gallery');
 

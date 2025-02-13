@@ -809,17 +809,15 @@ function calcularTotais() {
  * - Recalcula os totais das linhas e da tab
  */
 export function handlePasteEventPriceTable(event) {
-    console.log("COLANDO VALORES");
     event.preventDefault();
 
     const clipboardData = event.clipboardData || window.clipboardData;
     const pastedData = clipboardData.getData('Text').trim();
-    console.log("pastedData: ", pastedData);
 
     const table = document.getElementById('priceTable').getElementsByTagName('tbody')[0];
-    const rows = table.rows;
+    let rows = Array.from(table.rows).slice(0, -qlt);
     const startRowIndex = Array.prototype.indexOf.call(rows, event.target.parentNode);
-    const startCellIndex = Array.prototype.indexOf.call(event.target.parentNode.cells, event.target);
+    const startCellIndex = Array.prototype.indexOf.call(Array.from(event.target.parentNode.cells), event.target);
 
     const pastedRows = pastedData.split('\n').map(row => row.split('\t'));
 
@@ -827,9 +825,10 @@ export function handlePasteEventPriceTable(event) {
     for (let rowIndex = 0; rowIndex < pastedRows.length; rowIndex++) {
         if (startRowIndex + rowIndex >= rows.length) {
             addProductRow();
+            rows = Array.from(table.rows).slice(0, -qlt); // Atualize a variável rows após adicionar uma nova linha
         }
 
-        const cells = rows[startRowIndex + rowIndex].cells;
+        const cells = Array.from(rows[startRowIndex + rowIndex].cells);
 
         for (let cellIndex = 0; cellIndex < pastedRows[rowIndex].length; cellIndex++) {
             if (startCellIndex + cellIndex >= cells.length) {
@@ -838,16 +837,21 @@ export function handlePasteEventPriceTable(event) {
 
             const cell = cells[startCellIndex + cellIndex];
             let value = pastedRows[rowIndex][cellIndex];
-            console.log("Value: ", value);
-            // Converte para formato apropriado baseado na classe da célula
+
+            // Converte para formato apropriado baseado na classe da célula \\
             if (cell.classList.contains('numeric-cell')) {
                 cell.dataset.valor_original = converterStringParaDecimal(value);
-            }
-            cell.innerText = cell.classList.contains('quantidade')?formatToBRL_V2(value, 3):formatToBRL_V2(value);
-        }
+                cell.innerText = cell.classList.contains('quantidade')?formatToBRL_V2(value, 3):formatToBRL_V2(value);
 
-        calculateTotalPrices(startRowIndex + rowIndex);
+            }else
+            {
+                cell.innerText = value;
+
+            }
+        }
+        calculateTotalPrices(rowIndex);
     }
+    atualizarOuvintesTabCot();
     calcularTotais();
 }
 
@@ -1531,7 +1535,7 @@ async function abrirModalCadastroFornecedor() {
     modal.appendChild(formulario);
 
 
-    const tipo = globais.pag.includes("_DP") ? 'DEPARTAMENTO PESSOAL' : 'FORNECEDOR';
+    const tipo = globais.perfilResponsavel.includes("Depto. Pessoal") ? 'DEPARTAMENTO PESSOAL' : 'FORNECEDOR';
     // Campos do formulário
     const campos = [
         { label: 'Tipo', name: 'Tipo', display: 'none', initialContent: tipo},
@@ -1640,6 +1644,7 @@ async function abrirModalCadastroFornecedor() {
             const requiredFields = ['Nome_do_fornecedor'];
             if (formularioData['Tipo'] !== 'DEPARTAMENTO PESSOAL') {
                 requiredFields.push('Cpf_Cnpj_do_fornecedor');
+
             }
 
             const missingFields = requiredFields.filter(field => !formularioData[field]);
@@ -1647,14 +1652,17 @@ async function abrirModalCadastroFornecedor() {
             if (missingFields.length) {
                 alert(`Por favor, preencha os campos obrigatórios: ${missingFields.join(', ')}.`);
                 return;
+
             }
+
             // Verifica se o CNPJ do fornecedor já existe na base de fornecedores
             const cnpjFornecedor = formularioData['Cpf_Cnpj_do_fornecedor'].replace(/\D/g, '');
             const fornecedorExistente = Array.from(globais.baseFornecedores.values()).find(fornecedor => fornecedor[2].replace(/\D/g, '') === cnpjFornecedor);
 
-            if (fornecedorExistente) {
+            if (fornecedorExistente && formularioData['Tipo'] !== 'DEPARTAMENTO PESSOAL') {
                 alert(`O CNPJ ${formularioData['Cpf_Cnpj_do_fornecedor']} do fornecedor ${formularioData['Nome_do_fornecedor']} já existe na base de fornecedores.\n\nDados do fornecedor já existente:\n\n${Object.entries(fornecedorExistente).map(([key, value]) => `* ${key}: ${value}`).join('\n')}`);
                 return;
+
             }
 
             // Adiciona o fornecedor na base de fornecedores
@@ -1662,10 +1670,13 @@ async function abrirModalCadastroFornecedor() {
                 if (resp.code === 3000) {
                     document.body.removeChild(overlay); // Fecha o modal
                     resolve(resp.data.ID); // Resolve a Promise com o ID
+                    
                 } else {
                     alert("Falha ao realizar o envio, tente novamente ou contate o adminsitrador do sistema!")
                     resolve(null); // Resolve com null em caso de falha
+
                 }
+
             });
         };
     });

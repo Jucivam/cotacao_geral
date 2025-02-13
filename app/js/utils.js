@@ -1005,7 +1005,6 @@ export async function tratarRespModal({ acao, infoInserida = null }) {
             "confirmar_pag_ahreas",
             "suspender_pagamento"
         ].includes(acao)) {
-
         /*
         const valido = validateFields(acao);
         if (!valido) return false;
@@ -1302,7 +1301,10 @@ export function desabilitarCampos() {
     });
 }
 
-export function validateFields(action) {
+function validateFields(action) {
+    const log = true;
+    if(log) console.log("++++++++++VALIDANDO CAMPOS OBRIGATÓRIOS++++++++++");
+    if(log) console.log("action => ", action);
     let all = {};
     let atLeastOne = {};
     let otherFormats = {};
@@ -1326,9 +1328,6 @@ export function validateFields(action) {
                 'Tipo_de_solicitacao': 'name',
                 'Descricao_da_compra': 'name',
                 'Utilizacao': 'name',
-                'id_forn': 'dataset',
-                'quantidade': 'class',
-                'valor-unit': 'class',
                 'dp-field-input': 'class'
             };
             atLeastOne = {
@@ -1348,8 +1347,9 @@ export function validateFields(action) {
     };
 
     function validateField(field) {
-        
+
         if (field.tagName === 'INPUT' || field.tagName === 'TEXTAREA') {
+            if(log) console.log("-----> É input ou textarea");
             // Verifica o valor do campo
             if (field.value === '') {
                 return false;
@@ -1357,6 +1357,7 @@ export function validateFields(action) {
             }
             
         } else if (field.tagName === 'SELECT') {
+            if(log) console.log("-----> É select");
             // Verifica se o campo select tem um valor selecionado
             const selectedOption = field.options[field.selectedIndex];
             if (selectedOption.classList.contains('invalid')) {
@@ -1365,12 +1366,14 @@ export function validateFields(action) {
             }
 
         } else if (field.tagName === 'TD') {
+            if(log) console.log("-----> É td");
             // Verifica o texto do campo TD
             if (field.innerText === '') {
                 throw new Error(`O campo "${field.name}" deve ser preenchido.`);
             }
 
         } else {
+            if(log) console.log("-----> É um tipo não reconhecido");
             // Se o campo não for reconhecido, lança um erro
             throw new Error(`Tipo de campo não reconhecido: ${field.tagName}`);
 
@@ -1383,8 +1386,10 @@ export function validateFields(action) {
     errorMessage.style.color = 'red';
 
 
-    //=====All values are required=====\\
+    //==========ALL VALUES ARE REQUIRED==========\\
+    if(log) console.log("-----> Iterando sobre tipos de campos completamente obrigatórios <-----");
     for (let [key, value] of Object.entries(all)) {
+        if(log) console.log("Campo: ", key, " Tipo: ", value);
         let campos;
         if (value === 'dataset')
         {
@@ -1400,8 +1405,11 @@ export function validateFields(action) {
 
         }
 
+        if(log) console.log("Campos encontrados: ", (campos || ""));
+        //=====Validando todos os campos encontrados=====\\
         if(!campos) {
-            const overlayElements =    document.getElementsByClassName("customConfirm-overlay-div");
+            if(log) console.log("-----> Nenhum campo foi encontrado, lançando erro!");
+            const overlayElements = document.getElementsByClassName("customConfirm-overlay-div");
             if(overlayElements)
             {
                 Array.from(overlayElements).forEach(el => el.remove());
@@ -1412,29 +1420,36 @@ export function validateFields(action) {
 
         }else
         {
+            if(log) console.log("-----> Iterando sobre os campos do tipo atual <-----");
+
             campos.forEach(campo => {
+                if(log) console.log("Campo: ", campo);
                 const ret = validateField(campo);
+                if(log) console.log("Campo preenchido: ", ret);
+
                 if(!ret) {
+
                     campo.addEventListener('input', () => errorMessage.remove());
-                    campo.parentNode.appendChild(errorMessage);
-                    campo.parentNode.style.display = 'grid';
+
+                    campo.insertAdjacentElement('afterend', errorMessage);
                     campo.focus();
 
                     const overlayElement = document.querySelector(".customConfirm-overlay-div");
                     if (overlayElement) {
                         overlayElement.remove();
+
                     }
-
-                    return false;
-
+                    throw new Error(`Campo obrigatório não preenchido`);
                 };
             });
 
         }
+
             
     }
 
     ////////////////////////////////////////////////////////////////////////
+    /*
     //=====At least one value is required=====\\
     for (let [key, value] of Object.entries(atLeastOne)) {
         console.log("key: ", key, "value: ", value);
@@ -1530,7 +1545,8 @@ export function validateFields(action) {
             });
         }
     }
-
+    */
+    if(log) console.log("----------VALIDAÇÃO FINALIZADA, CAMPOS OBRIGATÓRIOS ESTÃO PREENCHIDOS----------");
     throw new Error(`TODOS OS CAMPOS ESTÃO PREENCHIDOS`);
 
     return true;
