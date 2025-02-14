@@ -1,1018 +1,176 @@
-save_utils.js:565 ++++++++++SALVANDO COTAÇÃO++++++++++
-save_utils.js:566 status =>  Enviado para checagem final
-save_utils.js:567 sepPorParc =>  true
-ad5db1ce-73da-449c-ad4e-060792395570.zappsusercontent.com/appfiles/v2/ad5db1ce-73da-449c-ad4e-060792395570/1.0/a6e03bb70ff42dd5897ec0524edc5182e0c70b42545ec05f8f0fe8e3e45946c9/r2970/app/js/save_utils.js:568 paramsExtraPDC =>  {}
-25Conclusão do carregamento XHR: POST "<URL>".
-571 => COTAÇÃO EXISTE <=
-586 *É separação por parcela
-591 *Marca que cotação não existe
-565 ++++++++++SALVANDO COTAÇÃO++++++++++
-566 status =>  Enviado para checagem final
-567 sepPorParc =>  true
-568 paramsExtraPDC =>  {}
-595 => COTACAO NÃO EXISTE <=
-16 ++++++++++CRIANDO DADOS DE CADA UMA DAS PARCELAS NÃO CRIADAS++++++++++
-17 status =>  Enviado para checagem final
-18 reqType =>  PRODUTO
-19 pgtoAnt =>  true
-22 advInstallment =>  true
-32 numInstallments =>  12
-35 => PEGANDO ARQUIVOS <=
-37 => PEGANDO DADOS DA NF <=
-309 ++++++++++BUSCANDO DADOS DA NOTA FISCAL++++++++++
-357 dadosNF =>  {"INSS":0,"ISS":0,"PIS_COFINS_CSSL":0,"Desconto_comercial_ou_parcela":0,"Acrescimo_tarifa_bancaria":0,"Dados_da_nota_fiscal1":[{"Data_emissao_N_Fiscal":"","Numero_N_Fiscal":""}],"Valor_original":10000,"Total_de_descontos":0,"Valor_total_a_pagar":10000}
-40 => PEGANDO DADOS DE PARCELAS <=
-43 indexInstallment =>  0
-45 isCreated =>  false
-49 => PARCELA AINDA NÃO CRIADA, PEGANDO DADOS <=
-51 currTempPDC =>  2025_02_03_08_55_31/01
-116 ++++++++++BUSCANDO DADOS DO PDC++++++++++
-118 => BUSCANDO DADOS INICIAIS DO PDC <=
-128 Nome: Entidade, Valor: 3938561000066182591
-128 Nome: Tipo_de_solicitacao, Valor: 3938561000077308645
-128 Nome: Descricao_da_compra, Valor: TESTE
-128 Nome: Utilizacao, Valor: TESTE
-128 Nome: Justificativa, Valor: TESTE
-132 Nome: id_temp, Valor: "2025_02_03_08_55_31/01"
-136 => BUSCANDO DETALHES DO PDC <=
-174 Nome: Numero_da_parcela, Valor: 1
-175 Nome: Vencimento_previsto, Valor: 04/02/2025
-176 Nome: Valor, Valor: 10000
-177 Nome: Num_PDC_parcela, Valor: 78521/01
-178 Nome: parcela_criada, Valor: true
-195 Nome: Forma_de_pagamento, Valor: Boleto
-191 Nome: Banco, Valor: 
-191 Nome: AG, Valor: 
-191 Nome: N_Conta, Valor: 
-191 Nome: Favorecido, Valor: 
-191 Nome: pag_antecipado, Valor: on
-191 Nome: Datas, Valor: 2025-02-04
-191 Nome: Valor, Valor: 10000,00
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-:191 Nome: , Valor: 
-201 => BUSCANDO DETALHES DA PARCELA <=
-213 Nome: Vencimento_previsto, Valor: 04/02/2025
-214 Nome: Num_PDC_parcela, Valor: 78521/01
-219 Nome: Perfil_responsavel, Valor: Depto. Pessoal
-222 ----------RETORNANDO DADOS DO PDC----------
-56 initialDataPDC.Num_PDC_parcela =>  78521/01
-57 currPDCInstallment =>  78521/01
-60 priceTableData =>  (4) [{…}, {…}, {…}, {…}]
-61 extraDataPDC =>  {Beneficiario: 'FOLHA DE PAGAMENTO...', Valor_orcado: 833.33}
-241 ++++++++++BUSCANDO DADOS DE CLASSIFICAÇÃO CONTÁBIL++++++++++
-264 Nome: Conta_a_debitar, Valor: CUSTEIO
-264 Nome: Centro_de_custo, Valor: 3938561000088875003
-264 Nome: Classe_operacional, Valor: 3938561000088875003
-276 Nome: Valor, Valor: 416.66
-264 Nome: Conta_a_debitar, Valor: CUSTEIO
-264 Nome: Centro_de_custo, Valor: 3938561000085072254
-264 Nome: Classe_operacional, Valor: 3938561000085070918
-276 Nome: Valor, Valor: 416.66
-291 ----------RETORNANDO DADOS DE CLASSIFICAÇÃO CONTÁBIL----------
-43 indexInstallment =>  1
-45 isCreated =>  false
-49 => PARCELA AINDA NÃO CRIADA, PEGANDO DADOS <=
-51 currTempPDC =>  2025_02_03_08_55_31/02
-116 ++++++++++BUSCANDO DADOS DO PDC++++++++++
-118 => BUSCANDO DADOS INICIAIS DO PDC <=
-128 Nome: Entidade, Valor: 3938561000066182591
-128 Nome: Tipo_de_solicitacao, Valor: 3938561000077308645
-128 Nome: Descricao_da_compra, Valor: TESTE
-128 Nome: Utilizacao, Valor: TESTE
-128 Nome: Justificativa, Valor: TESTE
-132 Nome: id_temp, Valor: "2025_02_03_08_55_31/02"
-136 => BUSCANDO DETALHES DO PDC <=
-174 Nome: Numero_da_parcela, Valor: 2
-175 Nome: Vencimento_previsto, Valor: undefined
-176 Nome: Valor, Valor: undefined
-177 Nome: Num_PDC_parcela, Valor: 78521/02
-178 Nome: parcela_criada, Valor: true
-195 Nome: Forma_de_pagamento, Valor: Boleto
-191 Nome: Banco, Valor: 
-191 Nome: AG, Valor: 
-191 Nome: N_Conta, Valor: 
-191 Nome: Favorecido, Valor: 
-191 Nome: pag_antecipado, Valor: on
-191 Nome: Datas, Valor: 2025-02-04
-191 Nome: Valor, Valor: 10000,00
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-:191 Nome: , Valor: 
-201 => BUSCANDO DETALHES DA PARCELA <=
-213 Nome: Vencimento_previsto, Valor: undefined
-214 Nome: Num_PDC_parcela, Valor: 78521/02
-219 Nome: Perfil_responsavel, Valor: Depto. Pessoal
-222 ----------RETORNANDO DADOS DO PDC----------
-56 initialDataPDC.Num_PDC_parcela =>  78521/02
-57 currPDCInstallment =>  78521/02
-60 priceTableData =>  (4) [{…}, {…}, {…}, {…}]
-61 extraDataPDC =>  {Beneficiario: 'FOLHA DE PAGAMENTO...', Valor_orcado: 833.33}
-241 ++++++++++BUSCANDO DADOS DE CLASSIFICAÇÃO CONTÁBIL++++++++++
-264 Nome: Conta_a_debitar, Valor: CUSTEIO
-264 Nome: Centro_de_custo, Valor: 3938561000088875003
-264 Nome: Classe_operacional, Valor: 3938561000088875003
-276 Nome: Valor, Valor: 416.66
-264 Nome: Conta_a_debitar, Valor: CUSTEIO
-264 Nome: Centro_de_custo, Valor: 3938561000085072254
-264 Nome: Classe_operacional, Valor: 3938561000085070918
-276 Nome: Valor, Valor: 416.66
-291 ----------RETORNANDO DADOS DE CLASSIFICAÇÃO CONTÁBIL----------
-43 indexInstallment =>  2
-45 isCreated =>  false
-49 => PARCELA AINDA NÃO CRIADA, PEGANDO DADOS <=
-51 currTempPDC =>  2025_02_03_08_55_31/03
-116 ++++++++++BUSCANDO DADOS DO PDC++++++++++
-118 => BUSCANDO DADOS INICIAIS DO PDC <=
-128 Nome: Entidade, Valor: 3938561000066182591
-128 Nome: Tipo_de_solicitacao, Valor: 3938561000077308645
-128 Nome: Descricao_da_compra, Valor: TESTE
-128 Nome: Utilizacao, Valor: TESTE
-128 Nome: Justificativa, Valor: TESTE
-132 Nome: id_temp, Valor: "2025_02_03_08_55_31/03"
-136 => BUSCANDO DETALHES DO PDC <=
-174 Nome: Numero_da_parcela, Valor: 3
-175 Nome: Vencimento_previsto, Valor: undefined
-176 Nome: Valor, Valor: undefined
-177 Nome: Num_PDC_parcela, Valor: 78521/03
-178 Nome: parcela_criada, Valor: true
-195 Nome: Forma_de_pagamento, Valor: Boleto
-191 Nome: Banco, Valor: 
-191 Nome: AG, Valor: 
-191 Nome: N_Conta, Valor: 
-191 Nome: Favorecido, Valor: 
-191 Nome: pag_antecipado, Valor: on
-191 Nome: Datas, Valor: 2025-02-04
-191 Nome: Valor, Valor: 10000,00
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-:191 Nome: , Valor: 
-201 => BUSCANDO DETALHES DA PARCELA <=
-213 Nome: Vencimento_previsto, Valor: undefined
-214 Nome: Num_PDC_parcela, Valor: 78521/03
-219 Nome: Perfil_responsavel, Valor: Depto. Pessoal
-222 ----------RETORNANDO DADOS DO PDC----------
-56 initialDataPDC.Num_PDC_parcela =>  78521/03
-57 currPDCInstallment =>  78521/03
-60 priceTableData =>  (4) [{…}, {…}, {…}, {…}]
-61 extraDataPDC =>  {Beneficiario: 'FOLHA DE PAGAMENTO...', Valor_orcado: 833.33}
-241 ++++++++++BUSCANDO DADOS DE CLASSIFICAÇÃO CONTÁBIL++++++++++
-264 Nome: Conta_a_debitar, Valor: CUSTEIO
-264 Nome: Centro_de_custo, Valor: 3938561000088875003
-264 Nome: Classe_operacional, Valor: 3938561000088875003
-276 Nome: Valor, Valor: 416.66
-264 Nome: Conta_a_debitar, Valor: CUSTEIO
-264 Nome: Centro_de_custo, Valor: 3938561000085072254
-264 Nome: Classe_operacional, Valor: 3938561000085070918
-276 Nome: Valor, Valor: 416.66
-291 ----------RETORNANDO DADOS DE CLASSIFICAÇÃO CONTÁBIL----------
-43 indexInstallment =>  3
-45 isCreated =>  false
-49 => PARCELA AINDA NÃO CRIADA, PEGANDO DADOS <=
-51 currTempPDC =>  2025_02_03_08_55_31/04
-116 ++++++++++BUSCANDO DADOS DO PDC++++++++++
-118 => BUSCANDO DADOS INICIAIS DO PDC <=
-128 Nome: Entidade, Valor: 3938561000066182591
-128 Nome: Tipo_de_solicitacao, Valor: 3938561000077308645
-128 Nome: Descricao_da_compra, Valor: TESTE
-128 Nome: Utilizacao, Valor: TESTE
-128 Nome: Justificativa, Valor: TESTE
-132 Nome: id_temp, Valor: "2025_02_03_08_55_31/04"
-136 => BUSCANDO DETALHES DO PDC <=
-174 Nome: Numero_da_parcela, Valor: 4
-175 Nome: Vencimento_previsto, Valor: undefined
-176 Nome: Valor, Valor: undefined
-177 Nome: Num_PDC_parcela, Valor: 78521/04
-178 Nome: parcela_criada, Valor: true
-195 Nome: Forma_de_pagamento, Valor: Boleto
-191 Nome: Banco, Valor: 
-191 Nome: AG, Valor: 
-191 Nome: N_Conta, Valor: 
-191 Nome: Favorecido, Valor: 
-191 Nome: pag_antecipado, Valor: on
-191 Nome: Datas, Valor: 2025-02-04
-191 Nome: Valor, Valor: 10000,00
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-:191 Nome: , Valor: 
-201 => BUSCANDO DETALHES DA PARCELA <=
-213 Nome: Vencimento_previsto, Valor: undefined
-214 Nome: Num_PDC_parcela, Valor: 78521/04
-219 Nome: Perfil_responsavel, Valor: Depto. Pessoal
-222 ----------RETORNANDO DADOS DO PDC----------
-56 initialDataPDC.Num_PDC_parcela =>  78521/04
-57 currPDCInstallment =>  78521/04
-60 priceTableData =>  (4) [{…}, {…}, {…}, {…}]
-61 extraDataPDC =>  {Beneficiario: 'FOLHA DE PAGAMENTO...', Valor_orcado: 833.33}
-241 ++++++++++BUSCANDO DADOS DE CLASSIFICAÇÃO CONTÁBIL++++++++++
-264 Nome: Conta_a_debitar, Valor: CUSTEIO
-264 Nome: Centro_de_custo, Valor: 3938561000088875003
-264 Nome: Classe_operacional, Valor: 3938561000088875003
-276 Nome: Valor, Valor: 416.66
-264 Nome: Conta_a_debitar, Valor: CUSTEIO
-264 Nome: Centro_de_custo, Valor: 3938561000085072254
-264 Nome: Classe_operacional, Valor: 3938561000085070918
-276 Nome: Valor, Valor: 416.66
-291 ----------RETORNANDO DADOS DE CLASSIFICAÇÃO CONTÁBIL----------
-43 indexInstallment =>  4
-45 isCreated =>  false
-49 => PARCELA AINDA NÃO CRIADA, PEGANDO DADOS <=
-51 currTempPDC =>  2025_02_03_08_55_31/05
-116 ++++++++++BUSCANDO DADOS DO PDC++++++++++
-118 => BUSCANDO DADOS INICIAIS DO PDC <=
-128 Nome: Entidade, Valor: 3938561000066182591
-128 Nome: Tipo_de_solicitacao, Valor: 3938561000077308645
-128 Nome: Descricao_da_compra, Valor: TESTE
-128 Nome: Utilizacao, Valor: TESTE
-128 Nome: Justificativa, Valor: TESTE
-132 Nome: id_temp, Valor: "2025_02_03_08_55_31/05"
-136 => BUSCANDO DETALHES DO PDC <=
-174 Nome: Numero_da_parcela, Valor: 5
-175 Nome: Vencimento_previsto, Valor: undefined
-176 Nome: Valor, Valor: undefined
-177 Nome: Num_PDC_parcela, Valor: 78521/05
-178 Nome: parcela_criada, Valor: true
-195 Nome: Forma_de_pagamento, Valor: Boleto
-191 Nome: Banco, Valor: 
-191 Nome: AG, Valor: 
-191 Nome: N_Conta, Valor: 
-191 Nome: Favorecido, Valor: 
-191 Nome: pag_antecipado, Valor: on
-191 Nome: Datas, Valor: 2025-02-04
-191 Nome: Valor, Valor: 10000,00
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-:191 Nome: , Valor: 
-201 => BUSCANDO DETALHES DA PARCELA <=
-213 Nome: Vencimento_previsto, Valor: undefined
-214 Nome: Num_PDC_parcela, Valor: 78521/05
-219 Nome: Perfil_responsavel, Valor: Depto. Pessoal
-222 ----------RETORNANDO DADOS DO PDC----------
-56 initialDataPDC.Num_PDC_parcela =>  78521/05
-57 currPDCInstallment =>  78521/05
-60 priceTableData =>  (4) [{…}, {…}, {…}, {…}]
-61 extraDataPDC =>  {Beneficiario: 'FOLHA DE PAGAMENTO...', Valor_orcado: 833.33}
-241 ++++++++++BUSCANDO DADOS DE CLASSIFICAÇÃO CONTÁBIL++++++++++
-264 Nome: Conta_a_debitar, Valor: CUSTEIO
-264 Nome: Centro_de_custo, Valor: 3938561000088875003
-264 Nome: Classe_operacional, Valor: 3938561000088875003
-276 Nome: Valor, Valor: 416.66
-264 Nome: Conta_a_debitar, Valor: CUSTEIO
-264 Nome: Centro_de_custo, Valor: 3938561000085072254
-264 Nome: Classe_operacional, Valor: 3938561000085070918
-276 Nome: Valor, Valor: 416.66
-291 ----------RETORNANDO DADOS DE CLASSIFICAÇÃO CONTÁBIL----------
-43 indexInstallment =>  5
-45 isCreated =>  false
-49 => PARCELA AINDA NÃO CRIADA, PEGANDO DADOS <=
-51 currTempPDC =>  2025_02_03_08_55_31/06
-116 ++++++++++BUSCANDO DADOS DO PDC++++++++++
-118 => BUSCANDO DADOS INICIAIS DO PDC <=
-128 Nome: Entidade, Valor: 3938561000066182591
-128 Nome: Tipo_de_solicitacao, Valor: 3938561000077308645
-128 Nome: Descricao_da_compra, Valor: TESTE
-128 Nome: Utilizacao, Valor: TESTE
-128 Nome: Justificativa, Valor: TESTE
-132 Nome: id_temp, Valor: "2025_02_03_08_55_31/06"
-136 => BUSCANDO DETALHES DO PDC <=
-174 Nome: Numero_da_parcela, Valor: 6
-175 Nome: Vencimento_previsto, Valor: undefined
-176 Nome: Valor, Valor: undefined
-177 Nome: Num_PDC_parcela, Valor: 78521/06
-178 Nome: parcela_criada, Valor: true
-195 Nome: Forma_de_pagamento, Valor: Boleto
-191 Nome: Banco, Valor: 
-191 Nome: AG, Valor: 
-191 Nome: N_Conta, Valor: 
-191 Nome: Favorecido, Valor: 
-191 Nome: pag_antecipado, Valor: on
-191 Nome: Datas, Valor: 2025-02-04
-191 Nome: Valor, Valor: 10000,00
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-:191 Nome: , Valor: 
-201 => BUSCANDO DETALHES DA PARCELA <=
-213 Nome: Vencimento_previsto, Valor: undefined
-214 Nome: Num_PDC_parcela, Valor: 78521/06
-219 Nome: Perfil_responsavel, Valor: Depto. Pessoal
-222 ----------RETORNANDO DADOS DO PDC----------
-56 initialDataPDC.Num_PDC_parcela =>  78521/06
-57 currPDCInstallment =>  78521/06
-60 priceTableData =>  (4) [{…}, {…}, {…}, {…}]
-61 extraDataPDC =>  {Beneficiario: 'FOLHA DE PAGAMENTO...', Valor_orcado: 833.33}
-241 ++++++++++BUSCANDO DADOS DE CLASSIFICAÇÃO CONTÁBIL++++++++++
-264 Nome: Conta_a_debitar, Valor: CUSTEIO
-264 Nome: Centro_de_custo, Valor: 3938561000088875003
-264 Nome: Classe_operacional, Valor: 3938561000088875003
-276 Nome: Valor, Valor: 416.66
-264 Nome: Conta_a_debitar, Valor: CUSTEIO
-264 Nome: Centro_de_custo, Valor: 3938561000085072254
-264 Nome: Classe_operacional, Valor: 3938561000085070918
-276 Nome: Valor, Valor: 416.66
-291 ----------RETORNANDO DADOS DE CLASSIFICAÇÃO CONTÁBIL----------
-43 indexInstallment =>  6
-45 isCreated =>  false
-49 => PARCELA AINDA NÃO CRIADA, PEGANDO DADOS <=
-51 currTempPDC =>  2025_02_03_08_55_31/07
-116 ++++++++++BUSCANDO DADOS DO PDC++++++++++
-118 => BUSCANDO DADOS INICIAIS DO PDC <=
-128 Nome: Entidade, Valor: 3938561000066182591
-128 Nome: Tipo_de_solicitacao, Valor: 3938561000077308645
-128 Nome: Descricao_da_compra, Valor: TESTE
-128 Nome: Utilizacao, Valor: TESTE
-128 Nome: Justificativa, Valor: TESTE
-132 Nome: id_temp, Valor: "2025_02_03_08_55_31/07"
-136 => BUSCANDO DETALHES DO PDC <=
-174 Nome: Numero_da_parcela, Valor: 7
-175 Nome: Vencimento_previsto, Valor: undefined
-176 Nome: Valor, Valor: undefined
-177 Nome: Num_PDC_parcela, Valor: 78521/07
-178 Nome: parcela_criada, Valor: true
-195 Nome: Forma_de_pagamento, Valor: Boleto
-191 Nome: Banco, Valor: 
-191 Nome: AG, Valor: 
-191 Nome: N_Conta, Valor: 
-191 Nome: Favorecido, Valor: 
-191 Nome: pag_antecipado, Valor: on
-191 Nome: Datas, Valor: 2025-02-04
-191 Nome: Valor, Valor: 10000,00
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-:191 Nome: , Valor: 
-201 => BUSCANDO DETALHES DA PARCELA <=
-213 Nome: Vencimento_previsto, Valor: undefined
-214 Nome: Num_PDC_parcela, Valor: 78521/07
-219 Nome: Perfil_responsavel, Valor: Depto. Pessoal
-222 ----------RETORNANDO DADOS DO PDC----------
-56 initialDataPDC.Num_PDC_parcela =>  78521/07
-57 currPDCInstallment =>  78521/07
-60 priceTableData =>  (4) [{…}, {…}, {…}, {…}]
-61 extraDataPDC =>  {Beneficiario: 'FOLHA DE PAGAMENTO...', Valor_orcado: 833.33}
-241 ++++++++++BUSCANDO DADOS DE CLASSIFICAÇÃO CONTÁBIL++++++++++
-264 Nome: Conta_a_debitar, Valor: CUSTEIO
-264 Nome: Centro_de_custo, Valor: 3938561000088875003
-264 Nome: Classe_operacional, Valor: 3938561000088875003
-276 Nome: Valor, Valor: 416.66
-264 Nome: Conta_a_debitar, Valor: CUSTEIO
-264 Nome: Centro_de_custo, Valor: 3938561000085072254
-264 Nome: Classe_operacional, Valor: 3938561000085070918
-276 Nome: Valor, Valor: 416.66
-291 ----------RETORNANDO DADOS DE CLASSIFICAÇÃO CONTÁBIL----------
-43 indexInstallment =>  7
-45 isCreated =>  false
-49 => PARCELA AINDA NÃO CRIADA, PEGANDO DADOS <=
-51 currTempPDC =>  2025_02_03_08_55_31/08
-116 ++++++++++BUSCANDO DADOS DO PDC++++++++++
-118 => BUSCANDO DADOS INICIAIS DO PDC <=
-128 Nome: Entidade, Valor: 3938561000066182591
-128 Nome: Tipo_de_solicitacao, Valor: 3938561000077308645
-128 Nome: Descricao_da_compra, Valor: TESTE
-128 Nome: Utilizacao, Valor: TESTE
-128 Nome: Justificativa, Valor: TESTE
-132 Nome: id_temp, Valor: "2025_02_03_08_55_31/08"
-136 => BUSCANDO DETALHES DO PDC <=
-174 Nome: Numero_da_parcela, Valor: 8
-175 Nome: Vencimento_previsto, Valor: undefined
-176 Nome: Valor, Valor: undefined
-177 Nome: Num_PDC_parcela, Valor: 78521/08
-178 Nome: parcela_criada, Valor: true
-195 Nome: Forma_de_pagamento, Valor: Boleto
-191 Nome: Banco, Valor: 
-191 Nome: AG, Valor: 
-191 Nome: N_Conta, Valor: 
-191 Nome: Favorecido, Valor: 
-191 Nome: pag_antecipado, Valor: on
-191 Nome: Datas, Valor: 2025-02-04
-191 Nome: Valor, Valor: 10000,00
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-:191 Nome: , Valor: 
-201 => BUSCANDO DETALHES DA PARCELA <=
-213 Nome: Vencimento_previsto, Valor: undefined
-214 Nome: Num_PDC_parcela, Valor: 78521/08
-219 Nome: Perfil_responsavel, Valor: Depto. Pessoal
-222 ----------RETORNANDO DADOS DO PDC----------
-56 initialDataPDC.Num_PDC_parcela =>  78521/08
-57 currPDCInstallment =>  78521/08
-60 priceTableData =>  (4) [{…}, {…}, {…}, {…}]
-61 extraDataPDC =>  {Beneficiario: 'FOLHA DE PAGAMENTO...', Valor_orcado: 833.33}
-241 ++++++++++BUSCANDO DADOS DE CLASSIFICAÇÃO CONTÁBIL++++++++++
-264 Nome: Conta_a_debitar, Valor: CUSTEIO
-264 Nome: Centro_de_custo, Valor: 3938561000088875003
-264 Nome: Classe_operacional, Valor: 3938561000088875003
-276 Nome: Valor, Valor: 416.66
-264 Nome: Conta_a_debitar, Valor: CUSTEIO
-264 Nome: Centro_de_custo, Valor: 3938561000085072254
-264 Nome: Classe_operacional, Valor: 3938561000085070918
-276 Nome: Valor, Valor: 416.66
-291 ----------RETORNANDO DADOS DE CLASSIFICAÇÃO CONTÁBIL----------
-43 indexInstallment =>  8
-45 isCreated =>  false
-49 => PARCELA AINDA NÃO CRIADA, PEGANDO DADOS <=
-51 currTempPDC =>  2025_02_03_08_55_31/09
-116 ++++++++++BUSCANDO DADOS DO PDC++++++++++
-118 => BUSCANDO DADOS INICIAIS DO PDC <=
-128 Nome: Entidade, Valor: 3938561000066182591
-128 Nome: Tipo_de_solicitacao, Valor: 3938561000077308645
-128 Nome: Descricao_da_compra, Valor: TESTE
-128 Nome: Utilizacao, Valor: TESTE
-128 Nome: Justificativa, Valor: TESTE
-132 Nome: id_temp, Valor: "2025_02_03_08_55_31/09"
-136 => BUSCANDO DETALHES DO PDC <=
-174 Nome: Numero_da_parcela, Valor: 9
-175 Nome: Vencimento_previsto, Valor: undefined
-176 Nome: Valor, Valor: undefined
-177 Nome: Num_PDC_parcela, Valor: 78521/09
-178 Nome: parcela_criada, Valor: true
-195 Nome: Forma_de_pagamento, Valor: Boleto
-191 Nome: Banco, Valor: 
-191 Nome: AG, Valor: 
-191 Nome: N_Conta, Valor: 
-191 Nome: Favorecido, Valor: 
-191 Nome: pag_antecipado, Valor: on
-191 Nome: Datas, Valor: 2025-02-04
-191 Nome: Valor, Valor: 10000,00
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-:191 Nome: , Valor: 
-201 => BUSCANDO DETALHES DA PARCELA <=
-213 Nome: Vencimento_previsto, Valor: undefined
-214 Nome: Num_PDC_parcela, Valor: 78521/09
-219 Nome: Perfil_responsavel, Valor: Depto. Pessoal
-222 ----------RETORNANDO DADOS DO PDC----------
-56 initialDataPDC.Num_PDC_parcela =>  78521/09
-57 currPDCInstallment =>  78521/09
-60 priceTableData =>  (4) [{…}, {…}, {…}, {…}]
-61 extraDataPDC =>  {Beneficiario: 'FOLHA DE PAGAMENTO...', Valor_orcado: 833.33}
-241 ++++++++++BUSCANDO DADOS DE CLASSIFICAÇÃO CONTÁBIL++++++++++
-264 Nome: Conta_a_debitar, Valor: CUSTEIO
-264 Nome: Centro_de_custo, Valor: 3938561000088875003
-264 Nome: Classe_operacional, Valor: 3938561000088875003
-276 Nome: Valor, Valor: 416.66
-264 Nome: Conta_a_debitar, Valor: CUSTEIO
-264 Nome: Centro_de_custo, Valor: 3938561000085072254
-264 Nome: Classe_operacional, Valor: 3938561000085070918
-276 Nome: Valor, Valor: 416.66
-291 ----------RETORNANDO DADOS DE CLASSIFICAÇÃO CONTÁBIL----------
-43 indexInstallment =>  9
-45 isCreated =>  false
-49 => PARCELA AINDA NÃO CRIADA, PEGANDO DADOS <=
-51 currTempPDC =>  2025_02_03_08_55_31/10
-116 ++++++++++BUSCANDO DADOS DO PDC++++++++++
-118 => BUSCANDO DADOS INICIAIS DO PDC <=
-128 Nome: Entidade, Valor: 3938561000066182591
-128 Nome: Tipo_de_solicitacao, Valor: 3938561000077308645
-128 Nome: Descricao_da_compra, Valor: TESTE
-128 Nome: Utilizacao, Valor: TESTE
-128 Nome: Justificativa, Valor: TESTE
-132 Nome: id_temp, Valor: "2025_02_03_08_55_31/10"
-136 => BUSCANDO DETALHES DO PDC <=
-174 Nome: Numero_da_parcela, Valor: 10
-175 Nome: Vencimento_previsto, Valor: undefined
-176 Nome: Valor, Valor: undefined
-177 Nome: Num_PDC_parcela, Valor: 78521/10
-178 Nome: parcela_criada, Valor: true
-195 Nome: Forma_de_pagamento, Valor: Boleto
-191 Nome: Banco, Valor: 
-191 Nome: AG, Valor: 
-191 Nome: N_Conta, Valor: 
-191 Nome: Favorecido, Valor: 
-191 Nome: pag_antecipado, Valor: on
-191 Nome: Datas, Valor: 2025-02-04
-191 Nome: Valor, Valor: 10000,00
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-:191 Nome: , Valor: 
-201 => BUSCANDO DETALHES DA PARCELA <=
-213 Nome: Vencimento_previsto, Valor: undefined
-214 Nome: Num_PDC_parcela, Valor: 78521/10
-219 Nome: Perfil_responsavel, Valor: Depto. Pessoal
-222 ----------RETORNANDO DADOS DO PDC----------
-56 initialDataPDC.Num_PDC_parcela =>  78521/10
-57 currPDCInstallment =>  78521/10
-60 priceTableData =>  (4) [{…}, {…}, {…}, {…}]
-61 extraDataPDC =>  {Beneficiario: 'FOLHA DE PAGAMENTO...', Valor_orcado: 833.33}
-241 ++++++++++BUSCANDO DADOS DE CLASSIFICAÇÃO CONTÁBIL++++++++++
-264 Nome: Conta_a_debitar, Valor: CUSTEIO
-264 Nome: Centro_de_custo, Valor: 3938561000088875003
-264 Nome: Classe_operacional, Valor: 3938561000088875003
-276 Nome: Valor, Valor: 416.66
-264 Nome: Conta_a_debitar, Valor: CUSTEIO
-264 Nome: Centro_de_custo, Valor: 3938561000085072254
-264 Nome: Classe_operacional, Valor: 3938561000085070918
-276 Nome: Valor, Valor: 416.66
-291 ----------RETORNANDO DADOS DE CLASSIFICAÇÃO CONTÁBIL----------
-43 indexInstallment =>  10
-45 isCreated =>  false
-49 => PARCELA AINDA NÃO CRIADA, PEGANDO DADOS <=
-51 currTempPDC =>  2025_02_03_08_55_31/11
-116 ++++++++++BUSCANDO DADOS DO PDC++++++++++
-118 => BUSCANDO DADOS INICIAIS DO PDC <=
-128 Nome: Entidade, Valor: 3938561000066182591
-128 Nome: Tipo_de_solicitacao, Valor: 3938561000077308645
-128 Nome: Descricao_da_compra, Valor: TESTE
-128 Nome: Utilizacao, Valor: TESTE
-128 Nome: Justificativa, Valor: TESTE
-132 Nome: id_temp, Valor: "2025_02_03_08_55_31/11"
-136 => BUSCANDO DETALHES DO PDC <=
-174 Nome: Numero_da_parcela, Valor: 11
-175 Nome: Vencimento_previsto, Valor: undefined
-176 Nome: Valor, Valor: undefined
-177 Nome: Num_PDC_parcela, Valor: 78521/11
-178 Nome: parcela_criada, Valor: true
-195 Nome: Forma_de_pagamento, Valor: Boleto
-191 Nome: Banco, Valor: 
-191 Nome: AG, Valor: 
-191 Nome: N_Conta, Valor: 
-191 Nome: Favorecido, Valor: 
-191 Nome: pag_antecipado, Valor: on
-191 Nome: Datas, Valor: 2025-02-04
-191 Nome: Valor, Valor: 10000,00
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-191 Nome: , Valor: 
-191 Nome: Datas, Valor: 
-191 Nome: Valor, Valor: 
-:191 Nome: , Valor: 
-201 => BUSCANDO DETALHES DA PARCELA <=
-213 Nome: Vencimento_previsto, Valor: undefined
-214 Nome: Num_PDC_parcela, Valor: 78521/11
-219 Nome: Perfil_responsavel, Valor: Depto. Pessoal
-222 ----------RETORNANDO DADOS DO PDC----------
-56 initialDataPDC.Num_PDC_parcela =>  78521/11
-57 currPDCInstallment =>  78521/11
-60 priceTableData =>  (4) [{…}, {…}, {…}, {…}]
-61 extraDataPDC =>  {Beneficiario: 'FOLHA DE PAGAMENTO...', Valor_orcado: 833.33}
-241 ++++++++++BUSCANDO DADOS DE CLASSIFICAÇÃO CONTÁBIL++++++++++
-264 Nome: Conta_a_debitar, Valor: CUSTEIO
-264 Nome: Centro_de_custo, Valor: 3938561000088875003
-264 Nome: Classe_operacional, Valor: 3938561000088875003
-276 Nome: Valor, Valor: 416.66
-264 Nome: Conta_a_debitar, Valor: CUSTEIO
-264 Nome: Centro_de_custo, Valor: 3938561000085072254
-264 Nome: Classe_operacional, Valor: 3938561000085070918
-276 Nome: Valor, Valor: 416.66
-291 ----------RETORNANDO DADOS DE CLASSIFICAÇÃO CONTÁBIL----------
-43 indexInstallment =>  11
-45 isCreated =>  false
-49 => PARCELA AINDA NÃO CRIADA, PEGANDO DADOS <=
-51 currTempPDC =>  2025_02_03_08_55_31/12
-116 ++++++++++BUSCANDO DADOS DO PDC++++++++++
-118 => BUSCANDO DADOS INICIAIS DO PDC <=
-128 Nome: Entidade, Valor: 3938561000066182591
-128 Nome: Tipo_de_solicitacao, Valor: 3938561000077308645
-128 Nome: Descricao_da_compra, Valor: TESTE
-128 Nome: Utilizacao, Valor: TESTE
-128 Nome: Justificativa, Valor: TESTE
-132 Nome: id_temp, Valor: "2025_02_03_08_55_31/12"
-136 => BUSCANDO DETALHES DO PDC <=
-174 Nome: Numero_da_parcela, Valor: 12
-175 Nome: Vencimento_previsto, Valor: undefined
-176 Nome: Valor, Valor: undefined
-177 Nome: Num_PDC_parcela, Valor: 78521/12
-178 Nome: parcela_criada, Valor: true
-195 Nome: Forma_de_pagamento, Valor: Boleto
-191 Nome: Banco, Valor: 
-save_utils.js:191 Nome: AG, Valor: 
-save_utils.js:191 Nome: N_Conta, Valor: 
-save_utils.js:191 Nome: Favorecido, Valor: 
-save_utils.js:191 Nome: pag_antecipado, Valor: on
-save_utils.js:191 Nome: Datas, Valor: 2025-02-04
-save_utils.js:191 Nome: Valor, Valor: 10000,00
-save_utils.js:191 Nome: , Valor: 
-save_utils.js:191 Nome: Datas, Valor: 
-save_utils.js:191 Nome: Valor, Valor: 
-save_utils.js:191 Nome: , Valor: 
-save_utils.js:191 Nome: Datas, Valor: 
-save_utils.js:191 Nome: Valor, Valor: 
-save_utils.js:191 Nome: , Valor: 
-save_utils.js:191 Nome: Datas, Valor: 
-save_utils.js:191 Nome: Valor, Valor: 
-save_utils.js:191 Nome: , Valor: 
-save_utils.js:191 Nome: Datas, Valor: 
-save_utils.js:191 Nome: Valor, Valor: 
-save_utils.js:191 Nome: , Valor: 
-save_utils.js:191 Nome: Datas, Valor: 
-save_utils.js:191 Nome: Valor, Valor: 
-save_utils.js:191 Nome: , Valor: 
-save_utils.js:191 Nome: Datas, Valor: 
-save_utils.js:191 Nome: Valor, Valor: 
-save_utils.js:191 Nome: , Valor: 
-save_utils.js:191 Nome: Datas, Valor: 
-save_utils.js:191 Nome: Valor, Valor: 
-save_utils.js:191 Nome: , Valor: 
-save_utils.js:191 Nome: Datas, Valor: 
-save_utils.js:191 Nome: Valor, Valor: 
-save_utils.js:191 Nome: , Valor: 
-save_utils.js:191 Nome: Datas, Valor: 
-save_utils.js:191 Nome: Valor, Valor: 
-save_utils.js:191 Nome: , Valor: 
-save_utils.js:191 Nome: Datas, Valor: 
-save_utils.js:191 Nome: Valor, Valor: 
-save_utils.js:191 Nome: , Valor: 
-save_utils.js:191 Nome: Datas, Valor: 
-save_utils.js:191 Nome: Valor, Valor: 
-2save_utils.js:191 Nome: , Valor: 
-save_utils.js:201 => BUSCANDO DETALHES DA PARCELA <=
-save_utils.js:213 Nome: Vencimento_previsto, Valor: undefined
-save_utils.js:214 Nome: Num_PDC_parcela, Valor: 78521/12
-save_utils.js:219 Nome: Perfil_responsavel, Valor: Depto. Pessoal
-save_utils.js:222 ----------RETORNANDO DADOS DO PDC----------
-save_utils.js:56 initialDataPDC.Num_PDC_parcela =>  78521/12
-save_utils.js:57 currPDCInstallment =>  78521/12
-save_utils.js:60 priceTableData =>  (4) [{…}, {…}, {…}, {…}]
-save_utils.js:61 extraDataPDC =>  {Beneficiario: 'FOLHA DE PAGAMENTO...', Valor_orcado: 833.33}
-save_utils.js:241 ++++++++++BUSCANDO DADOS DE CLASSIFICAÇÃO CONTÁBIL++++++++++
-save_utils.js:264 Nome: Conta_a_debitar, Valor: CUSTEIO
-save_utils.js:264 Nome: Centro_de_custo, Valor: 3938561000088875003
-save_utils.js:264 Nome: Classe_operacional, Valor: 3938561000088875003
-save_utils.js:276 Nome: Valor, Valor: 416.66
-save_utils.js:264 Nome: Conta_a_debitar, Valor: CUSTEIO
-save_utils.js:264 Nome: Centro_de_custo, Valor: 3938561000085072254
-save_utils.js:264 Nome: Classe_operacional, Valor: 3938561000085070918
-save_utils.js:276 Nome: Valor, Valor: 416.66
-save_utils.js:291 ----------RETORNANDO DADOS DE CLASSIFICAÇÃO CONTÁBIL----------
-save_utils.js:75 ----------DADOS CRIADOS, RETORNANDO MAPA----------
-save_utils.js:617 1. dadostabPrecos =>  (4) [{…}, {…}, {…}, {…}]
-save_utils.js:618 2. dadosPDC =>  {
+++++++++++CRIANDO MODAL CUSTOMIZADO++++++++++
+utils.js:847 +++ACAO =>  salvar_cot
+utils.js:848 +++TIPO DE ACAO =>  confirm
+utils.js:849 +++TITULO =>  null
+utils.js:850 +++MENSAGEM =>  Deseja realmente salvar esta cotação?
+utils.js:851 +++CONFIRM TEXT =>  Confirmar
+utils.js:852 +++CANCEL TEXT =>  Cancelar
+utils.js:853 +++LOADING TEXT =>  Carregando, aguarde...
+utils.js:898 Passou do input!
+save_utils.js:584 ++++++++++SALVANDO COTAÇÃO++++++++++
+save_utils.js:585 status =>  Propostas criadas
+save_utils.js:586 sepPorParc =>  false
+save_utils.js:587 paramsExtraPDC =>  {}
+save_utils.js:614 => COTACAO NÃO EXISTE <=
+save_utils.js:312 ++++++++++BUSCANDO DADOS DA NOTA FISCAL++++++++++
+save_utils.js:360 dadosNF =>  {"INSS":0,"ISS":0,"PIS_COFINS_CSSL":0,"Desconto_comercial_ou_parcela":0,"Acrescimo_tarifa_bancaria":0,"Dados_da_nota_fiscal1":[{"Data_emissao_N_Fiscal":"","Numero_N_Fiscal":""}],"Valor_original":0,"Total_de_descontos":0,"Valor_total_a_pagar":0}
+save_utils.js:119 ++++++++++BUSCANDO DADOS DO PDC++++++++++
+save_utils.js:121 => BUSCANDO DADOS INICIAIS DO PDC <=
+save_utils.js:131 Nome: Entidade, Valor: 3938561000066182591
+save_utils.js:131 Nome: Tipo_de_solicitacao, Valor: 
+save_utils.js:131 Nome: Descricao_da_compra, Valor: TESTE JUCIVAM
+save_utils.js:131 Nome: Utilizacao, Valor: TESTE JUCIVAM
+save_utils.js:131 Nome: Justificativa, Valor: TESTE JUCIVAM
+save_utils.js:135 Nome: id_temp, Valor: "2025_02_14_13_11_56"
+save_utils.js:139 => BUSCANDO DETALHES DO PDC <=
+save_utils.js:177 Nome: Numero_da_parcela, Valor: 1
+save_utils.js:178 Nome: Vencimento_previsto, Valor: 15/02/2025
+save_utils.js:179 Nome: Valor, Valor: 15000
+save_utils.js:180 Nome: Num_PDC_parcela, Valor: undefined
+save_utils.js:181 Nome: parcela_criada, Valor: false
+save_utils.js:198 Nome: Forma_de_pagamento, Valor: Boleto
+save_utils.js:194 Nome: Banco, Valor: 
+save_utils.js:194 Nome: AG, Valor: 
+save_utils.js:194 Nome: N_Conta, Valor: 
+save_utils.js:194 Nome: Favorecido, Valor: 
+save_utils.js:194 Nome: CPF_CNPJ_do_favorecido, Valor: 
+save_utils.js:194 Nome: Tipo_de_chave_pix, Valor: CPF
+save_utils.js:194 Nome: Chave_pix, Valor: 
+save_utils.js:194 Nome: pag_antecipado, Valor: on
+save_utils.js:194 Nome: botao_remover, Valor: 
+save_utils.js:194 Nome: , Valor: 
+save_utils.js:204 => BUSCANDO DETALHES DA PARCELA <=
+save_utils.js:216 Nome: Vencimento_previsto, Valor: 15/02/2025
+save_utils.js:217 Nome: Num_PDC_parcela, Valor: undefined
+save_utils.js:222 Nome: Perfil_responsavel, Valor: Depto. Pessoal
+save_utils.js:225 ----------RETORNANDO DADOS DO PDC----------
+save_utils.js:244 ++++++++++BUSCANDO DADOS DE CLASSIFICAÇÃO CONTÁBIL++++++++++
+save_utils.js:267 Nome: Conta_a_debitar, Valor: CUSTEIO
+save_utils.js:267 Nome: Centro_de_custo, Valor: 3938561000088875003
+save_utils.js:267 Nome: Classe_operacional, Valor: 3938561000088875003
+save_utils.js:279 Nome: Valor, Valor: 15000
+save_utils.js:294 ----------RETORNANDO DADOS DE CLASSIFICAÇÃO CONTÁBIL----------
+save_utils.js:88 NFDdata =>  {INSS: 0, ISS: 0, PIS_COFINS_CSSL: 0, Desconto_comercial_ou_parcela: 0, Acrescimo_tarifa_bancaria: 0, …}
+save_utils.js:91 allDataPDC =>  {"Entidade":"3938561000066182591","Tipo_de_solicitacao":"","Descricao_da_compra":"TESTE JUCIVAM","Utilizacao":"TESTE JUCIVAM","Justificativa":"TESTE JUCIVAM","id_temp":"2025_02_14_13_11_56","Forma_de_pagamento":"Boleto","Banco":"","AG":"","N_Conta":"","Favorecido":"","CPF_CNPJ_do_favorecido":"","Tipo_de_chave_pix":"CPF","Chave_pix":"","pag_antecipado":"on","botao_remover":"","":"","Datas":[{"Numero_da_parcela":1,"Vencimento_previsto":"15/02/2025","Valor":15000,"parcela_criada":false}],"Vencimento_previsto":"15/02/2025","Perfil_responsavel":"Depto. Pessoal","Beneficiario":"COLITUR TRANSPORTES ...","Valor_orcado":15000,"Classificacao_contabil":[{"Conta_a_debitar":"CUSTEIO","Centro_de_custo":"3938561000088875003","Classe_operacional":"3938561000088875003","Valor":15000}],"INSS":0,"ISS":0,"PIS_COFINS_CSSL":0,"Desconto_comercial_ou_parcela":0,"Acrescimo_tarifa_bancaria":0,"Dados_da_nota_fiscal1":[{"Data_emissao_N_Fiscal":"","Numero_N_Fiscal":""}],"Valor_original":0,"Total_de_descontos":0,"Valor_total_a_pagar":0,"Status_geral":"Propostas criadas"}
+save_utils.js:617 PDCsToSave => 
+save_utils.js:618 {
+  "0": {
+    "priceTableData": [
+      {
+        "id_produto": "1",
+        "id_fornecedor": "1786",
+        "Produto": "ITEM TESTE",
+        "Quantidade": 1,
+        "Unidade": "",
+        "Fornecedor": "COLITUR TRANSPORTES ...",
+        "Valor_unitario": 15000,
+        "Valor_total": 15000,
+        "Valor_do_frete": 0,
+        "Descontos": 0,
+        "Total_geral": 15000,
+        "Condicoes_de_pagamento": "",
+        "Observacoes": "",
+        "numero_de_PDC": null,
+        "num_PDC_temp": "2025_02_14_13_11_56",
+        "Aprovado": true,
+        "Versao": 1,
+        "Ativo": true
+      }
+    ],
+    "PDCsData": {
+      "Entidade": "3938561000066182591",
+      "Tipo_de_solicitacao": "",
+      "Descricao_da_compra": "TESTE JUCIVAM",
+      "Utilizacao": "TESTE JUCIVAM",
+      "Justificativa": "TESTE JUCIVAM",
+      "id_temp": "2025_02_14_13_11_56",
+      "Forma_de_pagamento": "Boleto",
+      "Banco": "",
+      "AG": "",
+      "N_Conta": "",
+      "Favorecido": "",
+      "CPF_CNPJ_do_favorecido": "",
+      "Tipo_de_chave_pix": "CPF",
+      "Chave_pix": "",
+      "pag_antecipado": "on",
+      "botao_remover": "",
+      "": "",
+      "Datas": [
+        {
+          "Numero_da_parcela": 1,
+          "Vencimento_previsto": "15/02/2025",
+          "Valor": 15000,
+          "parcela_criada": false
+        }
+      ],
+      "Vencimento_previsto": "15/02/2025",
+      "Perfil_responsavel": "Depto. Pessoal",
+      "Beneficiario": "COLITUR TRANSPORTES ...",
+      "Valor_orcado": 15000,
+      "Classificacao_contabil": [
+        {
+          "Conta_a_debitar": "CUSTEIO",
+          "Centro_de_custo": "3938561000088875003",
+          "Classe_operacional": "3938561000088875003",
+          "Valor": 15000
+        }
+      ],
+      "INSS": 0,
+      "ISS": 0,
+      "PIS_COFINS_CSSL": 0,
+      "Desconto_comercial_ou_parcela": 0,
+      "Acrescimo_tarifa_bancaria": 0,
+      "Dados_da_nota_fiscal1": [
+        {
+          "Data_emissao_N_Fiscal": "",
+          "Numero_N_Fiscal": ""
+        }
+      ],
+      "Valor_original": 0,
+      "Total_de_descontos": 0,
+      "Valor_total_a_pagar": 0,
+      "Status_geral": "Propostas criadas"
+    },
+    "Files": {}
+  }
+}
+save_utils.js:637 1. dadostabPrecos =>  [{…}]
+save_utils.js:638 2. dadosPDC =>  {
   "Entidade": "3938561000066182591",
-  "Tipo_de_solicitacao": "3938561000077308645",
-  "Descricao_da_compra": "TESTE",
-  "Utilizacao": "TESTE",
-  "Justificativa": "TESTE",
-  "id_temp": "2025_02_03_08_55_31/01",
+  "Tipo_de_solicitacao": "",
+  "Descricao_da_compra": "TESTE JUCIVAM",
+  "Utilizacao": "TESTE JUCIVAM",
+  "Justificativa": "TESTE JUCIVAM",
+  "id_temp": "2025_02_14_13_11_56",
   "Forma_de_pagamento": "Boleto",
   "Banco": "",
   "AG": "",
   "N_Conta": "",
   "Favorecido": "",
-  "pag_antecipado": true,
+  "CPF_CNPJ_do_favorecido": "",
+  "Tipo_de_chave_pix": "CPF",
+  "Chave_pix": "",
+  "pag_antecipado": "on",
+  "botao_remover": "",
+  "": "",
   "Datas": [
     {
       "Numero_da_parcela": 1,
-      "Vencimento_previsto": "04/02/2025",
-      "Valor": 10000,
-      "Num_PDC_parcela": "78521/01",
-      "parcela_criada": true
+      "Vencimento_previsto": "15/02/2025",
+      "Valor": 15000,
+      "parcela_criada": false
     }
   ],
-  "Valor": "",
-  "": "",
-  "Vencimento_previsto": "04/02/2025",
-  "Numero_do_PDC": "78521/01",
+  "Vencimento_previsto": "15/02/2025",
   "Perfil_responsavel": "Depto. Pessoal",
-  "Beneficiario": "FOLHA DE PAGAMENTO...",
-  "Valor_orcado": 833.33,
+  "Beneficiario": "COLITUR TRANSPORTES ...",
+  "Valor_orcado": 15000,
   "Classificacao_contabil": [
     {
       "Conta_a_debitar": "CUSTEIO",
       "Centro_de_custo": "3938561000088875003",
       "Classe_operacional": "3938561000088875003",
-      "Valor": 416.66
-    },
-    {
-      "Conta_a_debitar": "CUSTEIO",
-      "Centro_de_custo": "3938561000085072254",
-      "Classe_operacional": "3938561000085070918",
-      "Valor": 416.66
+      "Valor": 15000
     }
   ],
   "INSS": 0,
@@ -1026,54 +184,49 @@ save_utils.js:618 2. dadosPDC =>  {
       "Numero_N_Fiscal": ""
     }
   ],
-  "Valor_original": 10000,
+  "Valor_original": 0,
   "Total_de_descontos": 0,
-  "Valor_total_a_pagar": 10000,
-  "Status_geral": "Enviado para checagem final"
+  "Valor_total_a_pagar": 0,
+  "Status_geral": "Propostas criadas"
 }
-save_utils.js:619 3. arquivos =>  {}
-save_utils.js:631 É CRIAÇÃO DE PDC!
-save_utils.js:632 DADOS DO PDC ===>  {
+save_utils.js:639 3. arquivos =>  {}
+save_utils.js:651 É CRIAÇÃO DE PDC!
+save_utils.js:652 DADOS DO PDC ===>  {
   "Entidade": "3938561000066182591",
-  "Tipo_de_solicitacao": "3938561000077308645",
-  "Descricao_da_compra": "TESTE",
-  "Utilizacao": "TESTE",
-  "Justificativa": "TESTE",
-  "id_temp": "2025_02_03_08_55_31/01",
+  "Tipo_de_solicitacao": "",
+  "Descricao_da_compra": "TESTE JUCIVAM",
+  "Utilizacao": "TESTE JUCIVAM",
+  "Justificativa": "TESTE JUCIVAM",
+  "id_temp": "2025_02_14_13_11_56",
   "Forma_de_pagamento": "Boleto",
   "Banco": "",
   "AG": "",
   "N_Conta": "",
   "Favorecido": "",
-  "pag_antecipado": true,
+  "CPF_CNPJ_do_favorecido": "",
+  "Tipo_de_chave_pix": "CPF",
+  "Chave_pix": "",
+  "pag_antecipado": "on",
+  "botao_remover": "",
+  "": "",
   "Datas": [
     {
       "Numero_da_parcela": 1,
-      "Vencimento_previsto": "04/02/2025",
-      "Valor": 10000,
-      "Num_PDC_parcela": "78521/01",
-      "parcela_criada": true
+      "Vencimento_previsto": "15/02/2025",
+      "Valor": 15000,
+      "parcela_criada": false
     }
   ],
-  "Valor": "",
-  "": "",
-  "Vencimento_previsto": "04/02/2025",
-  "Numero_do_PDC": "78521/01",
+  "Vencimento_previsto": "15/02/2025",
   "Perfil_responsavel": "Depto. Pessoal",
-  "Beneficiario": "FOLHA DE PAGAMENTO...",
-  "Valor_orcado": 833.33,
+  "Beneficiario": "COLITUR TRANSPORTES ...",
+  "Valor_orcado": 15000,
   "Classificacao_contabil": [
     {
       "Conta_a_debitar": "CUSTEIO",
       "Centro_de_custo": "3938561000088875003",
       "Classe_operacional": "3938561000088875003",
-      "Valor": 416.66
-    },
-    {
-      "Conta_a_debitar": "CUSTEIO",
-      "Centro_de_custo": "3938561000085072254",
-      "Classe_operacional": "3938561000085070918",
-      "Valor": 416.66
+      "Valor": 15000
     }
   ],
   "INSS": 0,
@@ -1087,1405 +240,56 @@ save_utils.js:632 DADOS DO PDC ===>  {
       "Numero_N_Fiscal": ""
     }
   ],
-  "Valor_original": 10000,
+  "Valor_original": 0,
   "Total_de_descontos": 0,
-  "Valor_total_a_pagar": 10000,
-  "Status_geral": "Enviado para checagem final"
+  "Valor_total_a_pagar": 0,
+  "Status_geral": "Propostas criadas"
 }
-save_utils.js:642 respPDC =>  {
+save_utils.js:662 respPDC =>  {
   "code": 3000,
   "data": {
-    "ID": "3938561000090205898"
+    "ID": "3938561000090852451"
   },
   "message": "Data Added Successfully"
 }
-save_utils.js:617 1. dadostabPrecos =>  (4) [{…}, {…}, {…}, {…}]
-save_utils.js:618 2. dadosPDC =>  {
-  "Entidade": "3938561000066182591",
-  "Tipo_de_solicitacao": "3938561000077308645",
-  "Descricao_da_compra": "TESTE",
-  "Utilizacao": "TESTE",
-  "Justificativa": "TESTE",
-  "id_temp": "2025_02_03_08_55_31/02",
-  "Forma_de_pagamento": "Boleto",
-  "Banco": "",
-  "AG": "",
-  "N_Conta": "",
-  "Favorecido": "",
-  "pag_antecipado": true,
-  "Datas": [
-    {
-      "Numero_da_parcela": 2,
-      "Num_PDC_parcela": "78521/02",
-      "parcela_criada": true
-    }
-  ],
-  "Valor": "",
-  "": "",
-  "Numero_do_PDC": "78521/02",
-  "Perfil_responsavel": "Depto. Pessoal",
-  "Beneficiario": "FOLHA DE PAGAMENTO...",
-  "Valor_orcado": 833.33,
-  "Classificacao_contabil": [
-    {
-      "Conta_a_debitar": "CUSTEIO",
-      "Centro_de_custo": "3938561000088875003",
-      "Classe_operacional": "3938561000088875003",
-      "Valor": 416.66
-    },
-    {
-      "Conta_a_debitar": "CUSTEIO",
-      "Centro_de_custo": "3938561000085072254",
-      "Classe_operacional": "3938561000085070918",
-      "Valor": 416.66
-    }
-  ],
-  "INSS": 0,
-  "ISS": 0,
-  "PIS_COFINS_CSSL": 0,
-  "Desconto_comercial_ou_parcela": 0,
-  "Acrescimo_tarifa_bancaria": 0,
-  "Dados_da_nota_fiscal1": [
-    {
-      "Data_emissao_N_Fiscal": "",
-      "Numero_N_Fiscal": ""
-    }
-  ],
-  "Valor_original": 10000,
-  "Total_de_descontos": 0,
-  "Valor_total_a_pagar": 10000,
-  "Status_geral": "Enviado para checagem final"
-}
-save_utils.js:619 3. arquivos =>  {}
-save_utils.js:631 É CRIAÇÃO DE PDC!
-save_utils.js:632 DADOS DO PDC ===>  {
-  "Entidade": "3938561000066182591",
-  "Tipo_de_solicitacao": "3938561000077308645",
-  "Descricao_da_compra": "TESTE",
-  "Utilizacao": "TESTE",
-  "Justificativa": "TESTE",
-  "id_temp": "2025_02_03_08_55_31/02",
-  "Forma_de_pagamento": "Boleto",
-  "Banco": "",
-  "AG": "",
-  "N_Conta": "",
-  "Favorecido": "",
-  "pag_antecipado": true,
-  "Datas": [
-    {
-      "Numero_da_parcela": 2,
-      "Num_PDC_parcela": "78521/02",
-      "parcela_criada": true
-    }
-  ],
-  "Valor": "",
-  "": "",
-  "Numero_do_PDC": "78521/02",
-  "Perfil_responsavel": "Depto. Pessoal",
-  "Beneficiario": "FOLHA DE PAGAMENTO...",
-  "Valor_orcado": 833.33,
-  "Classificacao_contabil": [
-    {
-      "Conta_a_debitar": "CUSTEIO",
-      "Centro_de_custo": "3938561000088875003",
-      "Classe_operacional": "3938561000088875003",
-      "Valor": 416.66
-    },
-    {
-      "Conta_a_debitar": "CUSTEIO",
-      "Centro_de_custo": "3938561000085072254",
-      "Classe_operacional": "3938561000085070918",
-      "Valor": 416.66
-    }
-  ],
-  "INSS": 0,
-  "ISS": 0,
-  "PIS_COFINS_CSSL": 0,
-  "Desconto_comercial_ou_parcela": 0,
-  "Acrescimo_tarifa_bancaria": 0,
-  "Dados_da_nota_fiscal1": [
-    {
-      "Data_emissao_N_Fiscal": "",
-      "Numero_N_Fiscal": ""
-    }
-  ],
-  "Valor_original": 10000,
-  "Total_de_descontos": 0,
-  "Valor_total_a_pagar": 10000,
-  "Status_geral": "Enviado para checagem final"
-}
-save_utils.js:642 respPDC =>  {
-  "code": 3000,
-  "data": {
-    "ID": "3938561000090205934"
-  },
-  "message": "Data Added Successfully"
-}
-save_utils.js:617 1. dadostabPrecos =>  (4) [{…}, {…}, {…}, {…}]
-save_utils.js:618 2. dadosPDC =>  {
-  "Entidade": "3938561000066182591",
-  "Tipo_de_solicitacao": "3938561000077308645",
-  "Descricao_da_compra": "TESTE",
-  "Utilizacao": "TESTE",
-  "Justificativa": "TESTE",
-  "id_temp": "2025_02_03_08_55_31/03",
-  "Forma_de_pagamento": "Boleto",
-  "Banco": "",
-  "AG": "",
-  "N_Conta": "",
-  "Favorecido": "",
-  "pag_antecipado": true,
-  "Datas": [
-    {
-      "Numero_da_parcela": 3,
-      "Num_PDC_parcela": "78521/03",
-      "parcela_criada": true
-    }
-  ],
-  "Valor": "",
-  "": "",
-  "Numero_do_PDC": "78521/03",
-  "Perfil_responsavel": "Depto. Pessoal",
-  "Beneficiario": "FOLHA DE PAGAMENTO...",
-  "Valor_orcado": 833.33,
-  "Classificacao_contabil": [
-    {
-      "Conta_a_debitar": "CUSTEIO",
-      "Centro_de_custo": "3938561000088875003",
-      "Classe_operacional": "3938561000088875003",
-      "Valor": 416.66
-    },
-    {
-      "Conta_a_debitar": "CUSTEIO",
-      "Centro_de_custo": "3938561000085072254",
-      "Classe_operacional": "3938561000085070918",
-      "Valor": 416.66
-    }
-  ],
-  "INSS": 0,
-  "ISS": 0,
-  "PIS_COFINS_CSSL": 0,
-  "Desconto_comercial_ou_parcela": 0,
-  "Acrescimo_tarifa_bancaria": 0,
-  "Dados_da_nota_fiscal1": [
-    {
-      "Data_emissao_N_Fiscal": "",
-      "Numero_N_Fiscal": ""
-    }
-  ],
-  "Valor_original": 10000,
-  "Total_de_descontos": 0,
-  "Valor_total_a_pagar": 10000,
-  "Status_geral": "Enviado para checagem final"
-}
-save_utils.js:619 3. arquivos =>  {}
-save_utils.js:631 É CRIAÇÃO DE PDC!
-save_utils.js:632 DADOS DO PDC ===>  {
-  "Entidade": "3938561000066182591",
-  "Tipo_de_solicitacao": "3938561000077308645",
-  "Descricao_da_compra": "TESTE",
-  "Utilizacao": "TESTE",
-  "Justificativa": "TESTE",
-  "id_temp": "2025_02_03_08_55_31/03",
-  "Forma_de_pagamento": "Boleto",
-  "Banco": "",
-  "AG": "",
-  "N_Conta": "",
-  "Favorecido": "",
-  "pag_antecipado": true,
-  "Datas": [
-    {
-      "Numero_da_parcela": 3,
-      "Num_PDC_parcela": "78521/03",
-      "parcela_criada": true
-    }
-  ],
-  "Valor": "",
-  "": "",
-  "Numero_do_PDC": "78521/03",
-  "Perfil_responsavel": "Depto. Pessoal",
-  "Beneficiario": "FOLHA DE PAGAMENTO...",
-  "Valor_orcado": 833.33,
-  "Classificacao_contabil": [
-    {
-      "Conta_a_debitar": "CUSTEIO",
-      "Centro_de_custo": "3938561000088875003",
-      "Classe_operacional": "3938561000088875003",
-      "Valor": 416.66
-    },
-    {
-      "Conta_a_debitar": "CUSTEIO",
-      "Centro_de_custo": "3938561000085072254",
-      "Classe_operacional": "3938561000085070918",
-      "Valor": 416.66
-    }
-  ],
-  "INSS": 0,
-  "ISS": 0,
-  "PIS_COFINS_CSSL": 0,
-  "Desconto_comercial_ou_parcela": 0,
-  "Acrescimo_tarifa_bancaria": 0,
-  "Dados_da_nota_fiscal1": [
-    {
-      "Data_emissao_N_Fiscal": "",
-      "Numero_N_Fiscal": ""
-    }
-  ],
-  "Valor_original": 10000,
-  "Total_de_descontos": 0,
-  "Valor_total_a_pagar": 10000,
-  "Status_geral": "Enviado para checagem final"
-}
-save_utils.js:642 respPDC =>  {
-  "code": 3000,
-  "data": {
-    "ID": "3938561000090205970"
-  },
-  "message": "Data Added Successfully"
-}
-save_utils.js:617 1. dadostabPrecos =>  (4) [{…}, {…}, {…}, {…}]
-save_utils.js:618 2. dadosPDC =>  {
-  "Entidade": "3938561000066182591",
-  "Tipo_de_solicitacao": "3938561000077308645",
-  "Descricao_da_compra": "TESTE",
-  "Utilizacao": "TESTE",
-  "Justificativa": "TESTE",
-  "id_temp": "2025_02_03_08_55_31/04",
-  "Forma_de_pagamento": "Boleto",
-  "Banco": "",
-  "AG": "",
-  "N_Conta": "",
-  "Favorecido": "",
-  "pag_antecipado": true,
-  "Datas": [
-    {
-      "Numero_da_parcela": 4,
-      "Num_PDC_parcela": "78521/04",
-      "parcela_criada": true
-    }
-  ],
-  "Valor": "",
-  "": "",
-  "Numero_do_PDC": "78521/04",
-  "Perfil_responsavel": "Depto. Pessoal",
-  "Beneficiario": "FOLHA DE PAGAMENTO...",
-  "Valor_orcado": 833.33,
-  "Classificacao_contabil": [
-    {
-      "Conta_a_debitar": "CUSTEIO",
-      "Centro_de_custo": "3938561000088875003",
-      "Classe_operacional": "3938561000088875003",
-      "Valor": 416.66
-    },
-    {
-      "Conta_a_debitar": "CUSTEIO",
-      "Centro_de_custo": "3938561000085072254",
-      "Classe_operacional": "3938561000085070918",
-      "Valor": 416.66
-    }
-  ],
-  "INSS": 0,
-  "ISS": 0,
-  "PIS_COFINS_CSSL": 0,
-  "Desconto_comercial_ou_parcela": 0,
-  "Acrescimo_tarifa_bancaria": 0,
-  "Dados_da_nota_fiscal1": [
-    {
-      "Data_emissao_N_Fiscal": "",
-      "Numero_N_Fiscal": ""
-    }
-  ],
-  "Valor_original": 10000,
-  "Total_de_descontos": 0,
-  "Valor_total_a_pagar": 10000,
-  "Status_geral": "Enviado para checagem final"
-}
-save_utils.js:619 3. arquivos =>  {}
-save_utils.js:631 É CRIAÇÃO DE PDC!
-save_utils.js:632 DADOS DO PDC ===>  {
-  "Entidade": "3938561000066182591",
-  "Tipo_de_solicitacao": "3938561000077308645",
-  "Descricao_da_compra": "TESTE",
-  "Utilizacao": "TESTE",
-  "Justificativa": "TESTE",
-  "id_temp": "2025_02_03_08_55_31/04",
-  "Forma_de_pagamento": "Boleto",
-  "Banco": "",
-  "AG": "",
-  "N_Conta": "",
-  "Favorecido": "",
-  "pag_antecipado": true,
-  "Datas": [
-    {
-      "Numero_da_parcela": 4,
-      "Num_PDC_parcela": "78521/04",
-      "parcela_criada": true
-    }
-  ],
-  "Valor": "",
-  "": "",
-  "Numero_do_PDC": "78521/04",
-  "Perfil_responsavel": "Depto. Pessoal",
-  "Beneficiario": "FOLHA DE PAGAMENTO...",
-  "Valor_orcado": 833.33,
-  "Classificacao_contabil": [
-    {
-      "Conta_a_debitar": "CUSTEIO",
-      "Centro_de_custo": "3938561000088875003",
-      "Classe_operacional": "3938561000088875003",
-      "Valor": 416.66
-    },
-    {
-      "Conta_a_debitar": "CUSTEIO",
-      "Centro_de_custo": "3938561000085072254",
-      "Classe_operacional": "3938561000085070918",
-      "Valor": 416.66
-    }
-  ],
-  "INSS": 0,
-  "ISS": 0,
-  "PIS_COFINS_CSSL": 0,
-  "Desconto_comercial_ou_parcela": 0,
-  "Acrescimo_tarifa_bancaria": 0,
-  "Dados_da_nota_fiscal1": [
-    {
-      "Data_emissao_N_Fiscal": "",
-      "Numero_N_Fiscal": ""
-    }
-  ],
-  "Valor_original": 10000,
-  "Total_de_descontos": 0,
-  "Valor_total_a_pagar": 10000,
-  "Status_geral": "Enviado para checagem final"
-}
-save_utils.js:642 respPDC =>  {
-  "code": 3000,
-  "data": {
-    "ID": "3938561000090209006"
-  },
-  "message": "Data Added Successfully"
-}
-save_utils.js:617 1. dadostabPrecos =>  (4) [{…}, {…}, {…}, {…}]
-save_utils.js:618 2. dadosPDC =>  {
-  "Entidade": "3938561000066182591",
-  "Tipo_de_solicitacao": "3938561000077308645",
-  "Descricao_da_compra": "TESTE",
-  "Utilizacao": "TESTE",
-  "Justificativa": "TESTE",
-  "id_temp": "2025_02_03_08_55_31/05",
-  "Forma_de_pagamento": "Boleto",
-  "Banco": "",
-  "AG": "",
-  "N_Conta": "",
-  "Favorecido": "",
-  "pag_antecipado": true,
-  "Datas": [
-    {
-      "Numero_da_parcela": 5,
-      "Num_PDC_parcela": "78521/05",
-      "parcela_criada": true
-    }
-  ],
-  "Valor": "",
-  "": "",
-  "Numero_do_PDC": "78521/05",
-  "Perfil_responsavel": "Depto. Pessoal",
-  "Beneficiario": "FOLHA DE PAGAMENTO...",
-  "Valor_orcado": 833.33,
-  "Classificacao_contabil": [
-    {
-      "Conta_a_debitar": "CUSTEIO",
-      "Centro_de_custo": "3938561000088875003",
-      "Classe_operacional": "3938561000088875003",
-      "Valor": 416.66
-    },
-    {
-      "Conta_a_debitar": "CUSTEIO",
-      "Centro_de_custo": "3938561000085072254",
-      "Classe_operacional": "3938561000085070918",
-      "Valor": 416.66
-    }
-  ],
-  "INSS": 0,
-  "ISS": 0,
-  "PIS_COFINS_CSSL": 0,
-  "Desconto_comercial_ou_parcela": 0,
-  "Acrescimo_tarifa_bancaria": 0,
-  "Dados_da_nota_fiscal1": [
-    {
-      "Data_emissao_N_Fiscal": "",
-      "Numero_N_Fiscal": ""
-    }
-  ],
-  "Valor_original": 10000,
-  "Total_de_descontos": 0,
-  "Valor_total_a_pagar": 10000,
-  "Status_geral": "Enviado para checagem final"
-}
-save_utils.js:619 3. arquivos =>  {}
-save_utils.js:631 É CRIAÇÃO DE PDC!
-save_utils.js:632 DADOS DO PDC ===>  {
-  "Entidade": "3938561000066182591",
-  "Tipo_de_solicitacao": "3938561000077308645",
-  "Descricao_da_compra": "TESTE",
-  "Utilizacao": "TESTE",
-  "Justificativa": "TESTE",
-  "id_temp": "2025_02_03_08_55_31/05",
-  "Forma_de_pagamento": "Boleto",
-  "Banco": "",
-  "AG": "",
-  "N_Conta": "",
-  "Favorecido": "",
-  "pag_antecipado": true,
-  "Datas": [
-    {
-      "Numero_da_parcela": 5,
-      "Num_PDC_parcela": "78521/05",
-      "parcela_criada": true
-    }
-  ],
-  "Valor": "",
-  "": "",
-  "Numero_do_PDC": "78521/05",
-  "Perfil_responsavel": "Depto. Pessoal",
-  "Beneficiario": "FOLHA DE PAGAMENTO...",
-  "Valor_orcado": 833.33,
-  "Classificacao_contabil": [
-    {
-      "Conta_a_debitar": "CUSTEIO",
-      "Centro_de_custo": "3938561000088875003",
-      "Classe_operacional": "3938561000088875003",
-      "Valor": 416.66
-    },
-    {
-      "Conta_a_debitar": "CUSTEIO",
-      "Centro_de_custo": "3938561000085072254",
-      "Classe_operacional": "3938561000085070918",
-      "Valor": 416.66
-    }
-  ],
-  "INSS": 0,
-  "ISS": 0,
-  "PIS_COFINS_CSSL": 0,
-  "Desconto_comercial_ou_parcela": 0,
-  "Acrescimo_tarifa_bancaria": 0,
-  "Dados_da_nota_fiscal1": [
-    {
-      "Data_emissao_N_Fiscal": "",
-      "Numero_N_Fiscal": ""
-    }
-  ],
-  "Valor_original": 10000,
-  "Total_de_descontos": 0,
-  "Valor_total_a_pagar": 10000,
-  "Status_geral": "Enviado para checagem final"
-}
-save_utils.js:642 respPDC =>  {
-  "code": 3000,
-  "data": {
-    "ID": "3938561000090209042"
-  },
-  "message": "Data Added Successfully"
-}
-save_utils.js:617 1. dadostabPrecos =>  (4) [{…}, {…}, {…}, {…}]
-save_utils.js:618 2. dadosPDC =>  {
-  "Entidade": "3938561000066182591",
-  "Tipo_de_solicitacao": "3938561000077308645",
-  "Descricao_da_compra": "TESTE",
-  "Utilizacao": "TESTE",
-  "Justificativa": "TESTE",
-  "id_temp": "2025_02_03_08_55_31/06",
-  "Forma_de_pagamento": "Boleto",
-  "Banco": "",
-  "AG": "",
-  "N_Conta": "",
-  "Favorecido": "",
-  "pag_antecipado": true,
-  "Datas": [
-    {
-      "Numero_da_parcela": 6,
-      "Num_PDC_parcela": "78521/06",
-      "parcela_criada": true
-    }
-  ],
-  "Valor": "",
-  "": "",
-  "Numero_do_PDC": "78521/06",
-  "Perfil_responsavel": "Depto. Pessoal",
-  "Beneficiario": "FOLHA DE PAGAMENTO...",
-  "Valor_orcado": 833.33,
-  "Classificacao_contabil": [
-    {
-      "Conta_a_debitar": "CUSTEIO",
-      "Centro_de_custo": "3938561000088875003",
-      "Classe_operacional": "3938561000088875003",
-      "Valor": 416.66
-    },
-    {
-      "Conta_a_debitar": "CUSTEIO",
-      "Centro_de_custo": "3938561000085072254",
-      "Classe_operacional": "3938561000085070918",
-      "Valor": 416.66
-    }
-  ],
-  "INSS": 0,
-  "ISS": 0,
-  "PIS_COFINS_CSSL": 0,
-  "Desconto_comercial_ou_parcela": 0,
-  "Acrescimo_tarifa_bancaria": 0,
-  "Dados_da_nota_fiscal1": [
-    {
-      "Data_emissao_N_Fiscal": "",
-      "Numero_N_Fiscal": ""
-    }
-  ],
-  "Valor_original": 10000,
-  "Total_de_descontos": 0,
-  "Valor_total_a_pagar": 10000,
-  "Status_geral": "Enviado para checagem final"
-}
-save_utils.js:619 3. arquivos =>  {}
-save_utils.js:631 É CRIAÇÃO DE PDC!
-save_utils.js:632 DADOS DO PDC ===>  {
-  "Entidade": "3938561000066182591",
-  "Tipo_de_solicitacao": "3938561000077308645",
-  "Descricao_da_compra": "TESTE",
-  "Utilizacao": "TESTE",
-  "Justificativa": "TESTE",
-  "id_temp": "2025_02_03_08_55_31/06",
-  "Forma_de_pagamento": "Boleto",
-  "Banco": "",
-  "AG": "",
-  "N_Conta": "",
-  "Favorecido": "",
-  "pag_antecipado": true,
-  "Datas": [
-    {
-      "Numero_da_parcela": 6,
-      "Num_PDC_parcela": "78521/06",
-      "parcela_criada": true
-    }
-  ],
-  "Valor": "",
-  "": "",
-  "Numero_do_PDC": "78521/06",
-  "Perfil_responsavel": "Depto. Pessoal",
-  "Beneficiario": "FOLHA DE PAGAMENTO...",
-  "Valor_orcado": 833.33,
-  "Classificacao_contabil": [
-    {
-      "Conta_a_debitar": "CUSTEIO",
-      "Centro_de_custo": "3938561000088875003",
-      "Classe_operacional": "3938561000088875003",
-      "Valor": 416.66
-    },
-    {
-      "Conta_a_debitar": "CUSTEIO",
-      "Centro_de_custo": "3938561000085072254",
-      "Classe_operacional": "3938561000085070918",
-      "Valor": 416.66
-    }
-  ],
-  "INSS": 0,
-  "ISS": 0,
-  "PIS_COFINS_CSSL": 0,
-  "Desconto_comercial_ou_parcela": 0,
-  "Acrescimo_tarifa_bancaria": 0,
-  "Dados_da_nota_fiscal1": [
-    {
-      "Data_emissao_N_Fiscal": "",
-      "Numero_N_Fiscal": ""
-    }
-  ],
-  "Valor_original": 10000,
-  "Total_de_descontos": 0,
-  "Valor_total_a_pagar": 10000,
-  "Status_geral": "Enviado para checagem final"
-}
-save_utils.js:642 respPDC =>  {
-  "code": 3000,
-  "data": {
-    "ID": "3938561000090209078"
-  },
-  "message": "Data Added Successfully"
-}
-save_utils.js:617 1. dadostabPrecos =>  (4) [{…}, {…}, {…}, {…}]
-save_utils.js:618 2. dadosPDC =>  {
-  "Entidade": "3938561000066182591",
-  "Tipo_de_solicitacao": "3938561000077308645",
-  "Descricao_da_compra": "TESTE",
-  "Utilizacao": "TESTE",
-  "Justificativa": "TESTE",
-  "id_temp": "2025_02_03_08_55_31/07",
-  "Forma_de_pagamento": "Boleto",
-  "Banco": "",
-  "AG": "",
-  "N_Conta": "",
-  "Favorecido": "",
-  "pag_antecipado": true,
-  "Datas": [
-    {
-      "Numero_da_parcela": 7,
-      "Num_PDC_parcela": "78521/07",
-      "parcela_criada": true
-    }
-  ],
-  "Valor": "",
-  "": "",
-  "Numero_do_PDC": "78521/07",
-  "Perfil_responsavel": "Depto. Pessoal",
-  "Beneficiario": "FOLHA DE PAGAMENTO...",
-  "Valor_orcado": 833.33,
-  "Classificacao_contabil": [
-    {
-      "Conta_a_debitar": "CUSTEIO",
-      "Centro_de_custo": "3938561000088875003",
-      "Classe_operacional": "3938561000088875003",
-      "Valor": 416.66
-    },
-    {
-      "Conta_a_debitar": "CUSTEIO",
-      "Centro_de_custo": "3938561000085072254",
-      "Classe_operacional": "3938561000085070918",
-      "Valor": 416.66
-    }
-  ],
-  "INSS": 0,
-  "ISS": 0,
-  "PIS_COFINS_CSSL": 0,
-  "Desconto_comercial_ou_parcela": 0,
-  "Acrescimo_tarifa_bancaria": 0,
-  "Dados_da_nota_fiscal1": [
-    {
-      "Data_emissao_N_Fiscal": "",
-      "Numero_N_Fiscal": ""
-    }
-  ],
-  "Valor_original": 10000,
-  "Total_de_descontos": 0,
-  "Valor_total_a_pagar": 10000,
-  "Status_geral": "Enviado para checagem final"
-}
-save_utils.js:619 3. arquivos =>  {}
-save_utils.js:631 É CRIAÇÃO DE PDC!
-save_utils.js:632 DADOS DO PDC ===>  {
-  "Entidade": "3938561000066182591",
-  "Tipo_de_solicitacao": "3938561000077308645",
-  "Descricao_da_compra": "TESTE",
-  "Utilizacao": "TESTE",
-  "Justificativa": "TESTE",
-  "id_temp": "2025_02_03_08_55_31/07",
-  "Forma_de_pagamento": "Boleto",
-  "Banco": "",
-  "AG": "",
-  "N_Conta": "",
-  "Favorecido": "",
-  "pag_antecipado": true,
-  "Datas": [
-    {
-      "Numero_da_parcela": 7,
-      "Num_PDC_parcela": "78521/07",
-      "parcela_criada": true
-    }
-  ],
-  "Valor": "",
-  "": "",
-  "Numero_do_PDC": "78521/07",
-  "Perfil_responsavel": "Depto. Pessoal",
-  "Beneficiario": "FOLHA DE PAGAMENTO...",
-  "Valor_orcado": 833.33,
-  "Classificacao_contabil": [
-    {
-      "Conta_a_debitar": "CUSTEIO",
-      "Centro_de_custo": "3938561000088875003",
-      "Classe_operacional": "3938561000088875003",
-      "Valor": 416.66
-    },
-    {
-      "Conta_a_debitar": "CUSTEIO",
-      "Centro_de_custo": "3938561000085072254",
-      "Classe_operacional": "3938561000085070918",
-      "Valor": 416.66
-    }
-  ],
-  "INSS": 0,
-  "ISS": 0,
-  "PIS_COFINS_CSSL": 0,
-  "Desconto_comercial_ou_parcela": 0,
-  "Acrescimo_tarifa_bancaria": 0,
-  "Dados_da_nota_fiscal1": [
-    {
-      "Data_emissao_N_Fiscal": "",
-      "Numero_N_Fiscal": ""
-    }
-  ],
-  "Valor_original": 10000,
-  "Total_de_descontos": 0,
-  "Valor_total_a_pagar": 10000,
-  "Status_geral": "Enviado para checagem final"
-}
-save_utils.js:642 respPDC =>  {
-  "code": 3000,
-  "data": {
-    "ID": "3938561000090209114"
-  },
-  "message": "Data Added Successfully"
-}
-save_utils.js:617 1. dadostabPrecos =>  (4) [{…}, {…}, {…}, {…}]
-save_utils.js:618 2. dadosPDC =>  {
-  "Entidade": "3938561000066182591",
-  "Tipo_de_solicitacao": "3938561000077308645",
-  "Descricao_da_compra": "TESTE",
-  "Utilizacao": "TESTE",
-  "Justificativa": "TESTE",
-  "id_temp": "2025_02_03_08_55_31/08",
-  "Forma_de_pagamento": "Boleto",
-  "Banco": "",
-  "AG": "",
-  "N_Conta": "",
-  "Favorecido": "",
-  "pag_antecipado": true,
-  "Datas": [
-    {
-      "Numero_da_parcela": 8,
-      "Num_PDC_parcela": "78521/08",
-      "parcela_criada": true
-    }
-  ],
-  "Valor": "",
-  "": "",
-  "Numero_do_PDC": "78521/08",
-  "Perfil_responsavel": "Depto. Pessoal",
-  "Beneficiario": "FOLHA DE PAGAMENTO...",
-  "Valor_orcado": 833.33,
-  "Classificacao_contabil": [
-    {
-      "Conta_a_debitar": "CUSTEIO",
-      "Centro_de_custo": "3938561000088875003",
-      "Classe_operacional": "3938561000088875003",
-      "Valor": 416.66
-    },
-    {
-      "Conta_a_debitar": "CUSTEIO",
-      "Centro_de_custo": "3938561000085072254",
-      "Classe_operacional": "3938561000085070918",
-      "Valor": 416.66
-    }
-  ],
-  "INSS": 0,
-  "ISS": 0,
-  "PIS_COFINS_CSSL": 0,
-  "Desconto_comercial_ou_parcela": 0,
-  "Acrescimo_tarifa_bancaria": 0,
-  "Dados_da_nota_fiscal1": [
-    {
-      "Data_emissao_N_Fiscal": "",
-      "Numero_N_Fiscal": ""
-    }
-  ],
-  "Valor_original": 10000,
-  "Total_de_descontos": 0,
-  "Valor_total_a_pagar": 10000,
-  "Status_geral": "Enviado para checagem final"
-}
-save_utils.js:619 3. arquivos =>  {}
-save_utils.js:631 É CRIAÇÃO DE PDC!
-save_utils.js:632 DADOS DO PDC ===>  {
-  "Entidade": "3938561000066182591",
-  "Tipo_de_solicitacao": "3938561000077308645",
-  "Descricao_da_compra": "TESTE",
-  "Utilizacao": "TESTE",
-  "Justificativa": "TESTE",
-  "id_temp": "2025_02_03_08_55_31/08",
-  "Forma_de_pagamento": "Boleto",
-  "Banco": "",
-  "AG": "",
-  "N_Conta": "",
-  "Favorecido": "",
-  "pag_antecipado": true,
-  "Datas": [
-    {
-      "Numero_da_parcela": 8,
-      "Num_PDC_parcela": "78521/08",
-      "parcela_criada": true
-    }
-  ],
-  "Valor": "",
-  "": "",
-  "Numero_do_PDC": "78521/08",
-  "Perfil_responsavel": "Depto. Pessoal",
-  "Beneficiario": "FOLHA DE PAGAMENTO...",
-  "Valor_orcado": 833.33,
-  "Classificacao_contabil": [
-    {
-      "Conta_a_debitar": "CUSTEIO",
-      "Centro_de_custo": "3938561000088875003",
-      "Classe_operacional": "3938561000088875003",
-      "Valor": 416.66
-    },
-    {
-      "Conta_a_debitar": "CUSTEIO",
-      "Centro_de_custo": "3938561000085072254",
-      "Classe_operacional": "3938561000085070918",
-      "Valor": 416.66
-    }
-  ],
-  "INSS": 0,
-  "ISS": 0,
-  "PIS_COFINS_CSSL": 0,
-  "Desconto_comercial_ou_parcela": 0,
-  "Acrescimo_tarifa_bancaria": 0,
-  "Dados_da_nota_fiscal1": [
-    {
-      "Data_emissao_N_Fiscal": "",
-      "Numero_N_Fiscal": ""
-    }
-  ],
-  "Valor_original": 10000,
-  "Total_de_descontos": 0,
-  "Valor_total_a_pagar": 10000,
-  "Status_geral": "Enviado para checagem final"
-}
-save_utils.js:642 respPDC =>  {
-  "code": 3000,
-  "data": {
-    "ID": "3938561000090209150"
-  },
-  "message": "Data Added Successfully"
-}
-save_utils.js:617 1. dadostabPrecos =>  (4) [{…}, {…}, {…}, {…}]
-save_utils.js:618 2. dadosPDC =>  {
-  "Entidade": "3938561000066182591",
-  "Tipo_de_solicitacao": "3938561000077308645",
-  "Descricao_da_compra": "TESTE",
-  "Utilizacao": "TESTE",
-  "Justificativa": "TESTE",
-  "id_temp": "2025_02_03_08_55_31/09",
-  "Forma_de_pagamento": "Boleto",
-  "Banco": "",
-  "AG": "",
-  "N_Conta": "",
-  "Favorecido": "",
-  "pag_antecipado": true,
-  "Datas": [
-    {
-      "Numero_da_parcela": 9,
-      "Num_PDC_parcela": "78521/09",
-      "parcela_criada": true
-    }
-  ],
-  "Valor": "",
-  "": "",
-  "Numero_do_PDC": "78521/09",
-  "Perfil_responsavel": "Depto. Pessoal",
-  "Beneficiario": "FOLHA DE PAGAMENTO...",
-  "Valor_orcado": 833.33,
-  "Classificacao_contabil": [
-    {
-      "Conta_a_debitar": "CUSTEIO",
-      "Centro_de_custo": "3938561000088875003",
-      "Classe_operacional": "3938561000088875003",
-      "Valor": 416.66
-    },
-    {
-      "Conta_a_debitar": "CUSTEIO",
-      "Centro_de_custo": "3938561000085072254",
-      "Classe_operacional": "3938561000085070918",
-      "Valor": 416.66
-    }
-  ],
-  "INSS": 0,
-  "ISS": 0,
-  "PIS_COFINS_CSSL": 0,
-  "Desconto_comercial_ou_parcela": 0,
-  "Acrescimo_tarifa_bancaria": 0,
-  "Dados_da_nota_fiscal1": [
-    {
-      "Data_emissao_N_Fiscal": "",
-      "Numero_N_Fiscal": ""
-    }
-  ],
-  "Valor_original": 10000,
-  "Total_de_descontos": 0,
-  "Valor_total_a_pagar": 10000,
-  "Status_geral": "Enviado para checagem final"
-}
-save_utils.js:619 3. arquivos =>  {}
-save_utils.js:631 É CRIAÇÃO DE PDC!
-save_utils.js:632 DADOS DO PDC ===>  {
-  "Entidade": "3938561000066182591",
-  "Tipo_de_solicitacao": "3938561000077308645",
-  "Descricao_da_compra": "TESTE",
-  "Utilizacao": "TESTE",
-  "Justificativa": "TESTE",
-  "id_temp": "2025_02_03_08_55_31/09",
-  "Forma_de_pagamento": "Boleto",
-  "Banco": "",
-  "AG": "",
-  "N_Conta": "",
-  "Favorecido": "",
-  "pag_antecipado": true,
-  "Datas": [
-    {
-      "Numero_da_parcela": 9,
-      "Num_PDC_parcela": "78521/09",
-      "parcela_criada": true
-    }
-  ],
-  "Valor": "",
-  "": "",
-  "Numero_do_PDC": "78521/09",
-  "Perfil_responsavel": "Depto. Pessoal",
-  "Beneficiario": "FOLHA DE PAGAMENTO...",
-  "Valor_orcado": 833.33,
-  "Classificacao_contabil": [
-    {
-      "Conta_a_debitar": "CUSTEIO",
-      "Centro_de_custo": "3938561000088875003",
-      "Classe_operacional": "3938561000088875003",
-      "Valor": 416.66
-    },
-    {
-      "Conta_a_debitar": "CUSTEIO",
-      "Centro_de_custo": "3938561000085072254",
-      "Classe_operacional": "3938561000085070918",
-      "Valor": 416.66
-    }
-  ],
-  "INSS": 0,
-  "ISS": 0,
-  "PIS_COFINS_CSSL": 0,
-  "Desconto_comercial_ou_parcela": 0,
-  "Acrescimo_tarifa_bancaria": 0,
-  "Dados_da_nota_fiscal1": [
-    {
-      "Data_emissao_N_Fiscal": "",
-      "Numero_N_Fiscal": ""
-    }
-  ],
-  "Valor_original": 10000,
-  "Total_de_descontos": 0,
-  "Valor_total_a_pagar": 10000,
-  "Status_geral": "Enviado para checagem final"
-}
-save_utils.js:642 respPDC =>  {
-  "code": 3000,
-  "data": {
-    "ID": "3938561000090209186"
-  },
-  "message": "Data Added Successfully"
-}
-save_utils.js:617 1. dadostabPrecos =>  (4) [{…}, {…}, {…}, {…}]
-save_utils.js:618 2. dadosPDC =>  {
-  "Entidade": "3938561000066182591",
-  "Tipo_de_solicitacao": "3938561000077308645",
-  "Descricao_da_compra": "TESTE",
-  "Utilizacao": "TESTE",
-  "Justificativa": "TESTE",
-  "id_temp": "2025_02_03_08_55_31/10",
-  "Forma_de_pagamento": "Boleto",
-  "Banco": "",
-  "AG": "",
-  "N_Conta": "",
-  "Favorecido": "",
-  "pag_antecipado": true,
-  "Datas": [
-    {
-      "Numero_da_parcela": 10,
-      "Num_PDC_parcela": "78521/10",
-      "parcela_criada": true
-    }
-  ],
-  "Valor": "",
-  "": "",
-  "Numero_do_PDC": "78521/10",
-  "Perfil_responsavel": "Depto. Pessoal",
-  "Beneficiario": "FOLHA DE PAGAMENTO...",
-  "Valor_orcado": 833.33,
-  "Classificacao_contabil": [
-    {
-      "Conta_a_debitar": "CUSTEIO",
-      "Centro_de_custo": "3938561000088875003",
-      "Classe_operacional": "3938561000088875003",
-      "Valor": 416.66
-    },
-    {
-      "Conta_a_debitar": "CUSTEIO",
-      "Centro_de_custo": "3938561000085072254",
-      "Classe_operacional": "3938561000085070918",
-      "Valor": 416.66
-    }
-  ],
-  "INSS": 0,
-  "ISS": 0,
-  "PIS_COFINS_CSSL": 0,
-  "Desconto_comercial_ou_parcela": 0,
-  "Acrescimo_tarifa_bancaria": 0,
-  "Dados_da_nota_fiscal1": [
-    {
-      "Data_emissao_N_Fiscal": "",
-      "Numero_N_Fiscal": ""
-    }
-  ],
-  "Valor_original": 10000,
-  "Total_de_descontos": 0,
-  "Valor_total_a_pagar": 10000,
-  "Status_geral": "Enviado para checagem final"
-}
-save_utils.js:619 3. arquivos =>  {}
-save_utils.js:631 É CRIAÇÃO DE PDC!
-save_utils.js:632 DADOS DO PDC ===>  {
-  "Entidade": "3938561000066182591",
-  "Tipo_de_solicitacao": "3938561000077308645",
-  "Descricao_da_compra": "TESTE",
-  "Utilizacao": "TESTE",
-  "Justificativa": "TESTE",
-  "id_temp": "2025_02_03_08_55_31/10",
-  "Forma_de_pagamento": "Boleto",
-  "Banco": "",
-  "AG": "",
-  "N_Conta": "",
-  "Favorecido": "",
-  "pag_antecipado": true,
-  "Datas": [
-    {
-      "Numero_da_parcela": 10,
-      "Num_PDC_parcela": "78521/10",
-      "parcela_criada": true
-    }
-  ],
-  "Valor": "",
-  "": "",
-  "Numero_do_PDC": "78521/10",
-  "Perfil_responsavel": "Depto. Pessoal",
-  "Beneficiario": "FOLHA DE PAGAMENTO...",
-  "Valor_orcado": 833.33,
-  "Classificacao_contabil": [
-    {
-      "Conta_a_debitar": "CUSTEIO",
-      "Centro_de_custo": "3938561000088875003",
-      "Classe_operacional": "3938561000088875003",
-      "Valor": 416.66
-    },
-    {
-      "Conta_a_debitar": "CUSTEIO",
-      "Centro_de_custo": "3938561000085072254",
-      "Classe_operacional": "3938561000085070918",
-      "Valor": 416.66
-    }
-  ],
-  "INSS": 0,
-  "ISS": 0,
-  "PIS_COFINS_CSSL": 0,
-  "Desconto_comercial_ou_parcela": 0,
-  "Acrescimo_tarifa_bancaria": 0,
-  "Dados_da_nota_fiscal1": [
-    {
-      "Data_emissao_N_Fiscal": "",
-      "Numero_N_Fiscal": ""
-    }
-  ],
-  "Valor_original": 10000,
-  "Total_de_descontos": 0,
-  "Valor_total_a_pagar": 10000,
-  "Status_geral": "Enviado para checagem final"
-}
-save_utils.js:642 respPDC =>  {
-  "code": 3000,
-  "data": {
-    "ID": "3938561000090209222"
-  },
-  "message": "Data Added Successfully"
-}
-save_utils.js:617 1. dadostabPrecos =>  (4) [{…}, {…}, {…}, {…}]
-save_utils.js:618 2. dadosPDC =>  {
-  "Entidade": "3938561000066182591",
-  "Tipo_de_solicitacao": "3938561000077308645",
-  "Descricao_da_compra": "TESTE",
-  "Utilizacao": "TESTE",
-  "Justificativa": "TESTE",
-  "id_temp": "2025_02_03_08_55_31/11",
-  "Forma_de_pagamento": "Boleto",
-  "Banco": "",
-  "AG": "",
-  "N_Conta": "",
-  "Favorecido": "",
-  "pag_antecipado": true,
-  "Datas": [
-    {
-      "Numero_da_parcela": 11,
-      "Num_PDC_parcela": "78521/11",
-      "parcela_criada": true
-    }
-  ],
-  "Valor": "",
-  "": "",
-  "Numero_do_PDC": "78521/11",
-  "Perfil_responsavel": "Depto. Pessoal",
-  "Beneficiario": "FOLHA DE PAGAMENTO...",
-  "Valor_orcado": 833.33,
-  "Classificacao_contabil": [
-    {
-      "Conta_a_debitar": "CUSTEIO",
-      "Centro_de_custo": "3938561000088875003",
-      "Classe_operacional": "3938561000088875003",
-      "Valor": 416.66
-    },
-    {
-      "Conta_a_debitar": "CUSTEIO",
-      "Centro_de_custo": "3938561000085072254",
-      "Classe_operacional": "3938561000085070918",
-      "Valor": 416.66
-    }
-  ],
-  "INSS": 0,
-  "ISS": 0,
-  "PIS_COFINS_CSSL": 0,
-  "Desconto_comercial_ou_parcela": 0,
-  "Acrescimo_tarifa_bancaria": 0,
-  "Dados_da_nota_fiscal1": [
-    {
-      "Data_emissao_N_Fiscal": "",
-      "Numero_N_Fiscal": ""
-    }
-  ],
-  "Valor_original": 10000,
-  "Total_de_descontos": 0,
-  "Valor_total_a_pagar": 10000,
-  "Status_geral": "Enviado para checagem final"
-}
-save_utils.js:619 3. arquivos =>  {}
-save_utils.js:631 É CRIAÇÃO DE PDC!
-save_utils.js:632 DADOS DO PDC ===>  {
-  "Entidade": "3938561000066182591",
-  "Tipo_de_solicitacao": "3938561000077308645",
-  "Descricao_da_compra": "TESTE",
-  "Utilizacao": "TESTE",
-  "Justificativa": "TESTE",
-  "id_temp": "2025_02_03_08_55_31/11",
-  "Forma_de_pagamento": "Boleto",
-  "Banco": "",
-  "AG": "",
-  "N_Conta": "",
-  "Favorecido": "",
-  "pag_antecipado": true,
-  "Datas": [
-    {
-      "Numero_da_parcela": 11,
-      "Num_PDC_parcela": "78521/11",
-      "parcela_criada": true
-    }
-  ],
-  "Valor": "",
-  "": "",
-  "Numero_do_PDC": "78521/11",
-  "Perfil_responsavel": "Depto. Pessoal",
-  "Beneficiario": "FOLHA DE PAGAMENTO...",
-  "Valor_orcado": 833.33,
-  "Classificacao_contabil": [
-    {
-      "Conta_a_debitar": "CUSTEIO",
-      "Centro_de_custo": "3938561000088875003",
-      "Classe_operacional": "3938561000088875003",
-      "Valor": 416.66
-    },
-    {
-      "Conta_a_debitar": "CUSTEIO",
-      "Centro_de_custo": "3938561000085072254",
-      "Classe_operacional": "3938561000085070918",
-      "Valor": 416.66
-    }
-  ],
-  "INSS": 0,
-  "ISS": 0,
-  "PIS_COFINS_CSSL": 0,
-  "Desconto_comercial_ou_parcela": 0,
-  "Acrescimo_tarifa_bancaria": 0,
-  "Dados_da_nota_fiscal1": [
-    {
-      "Data_emissao_N_Fiscal": "",
-      "Numero_N_Fiscal": ""
-    }
-  ],
-  "Valor_original": 10000,
-  "Total_de_descontos": 0,
-  "Valor_total_a_pagar": 10000,
-  "Status_geral": "Enviado para checagem final"
-}
-save_utils.js:642 respPDC =>  {
-  "code": 3000,
-  "data": {
-    "ID": "3938561000090209258"
-  },
-  "message": "Data Added Successfully"
-}
-save_utils.js:617 1. dadostabPrecos =>  (4) [{…}, {…}, {…}, {…}]
-save_utils.js:618 2. dadosPDC =>  {
-  "Entidade": "3938561000066182591",
-  "Tipo_de_solicitacao": "3938561000077308645",
-  "Descricao_da_compra": "TESTE",
-  "Utilizacao": "TESTE",
-  "Justificativa": "TESTE",
-  "id_temp": "2025_02_03_08_55_31/12",
-  "Forma_de_pagamento": "Boleto",
-  "Banco": "",
-  "AG": "",
-  "N_Conta": "",
-  "Favorecido": "",
-  "pag_antecipado": true,
-  "Datas": [
-    {
-      "Numero_da_parcela": 12,
-      "Num_PDC_parcela": "78521/12",
-      "parcela_criada": true
-    }
-  ],
-  "Valor": "",
-  "": "",
-  "Numero_do_PDC": "78521/12",
-  "Perfil_responsavel": "Depto. Pessoal",
-  "Beneficiario": "FOLHA DE PAGAMENTO...",
-  "Valor_orcado": 833.33,
-  "Classificacao_contabil": [
-    {
-      "Conta_a_debitar": "CUSTEIO",
-      "Centro_de_custo": "3938561000088875003",
-      "Classe_operacional": "3938561000088875003",
-      "Valor": 416.66
-    },
-    {
-      "Conta_a_debitar": "CUSTEIO",
-      "Centro_de_custo": "3938561000085072254",
-      "Classe_operacional": "3938561000085070918",
-      "Valor": 416.66
-    }
-  ],
-  "INSS": 0,
-  "ISS": 0,
-  "PIS_COFINS_CSSL": 0,
-  "Desconto_comercial_ou_parcela": 0,
-  "Acrescimo_tarifa_bancaria": 0,
-  "Dados_da_nota_fiscal1": [
-    {
-      "Data_emissao_N_Fiscal": "",
-      "Numero_N_Fiscal": ""
-    }
-  ],
-  "Valor_original": 10000,
-  "Total_de_descontos": 0,
-  "Valor_total_a_pagar": 10000,
-  "Status_geral": "Enviado para checagem final"
-}
-save_utils.js:619 3. arquivos =>  {}
-save_utils.js:631 É CRIAÇÃO DE PDC!
-save_utils.js:632 DADOS DO PDC ===>  {
-  "Entidade": "3938561000066182591",
-  "Tipo_de_solicitacao": "3938561000077308645",
-  "Descricao_da_compra": "TESTE",
-  "Utilizacao": "TESTE",
-  "Justificativa": "TESTE",
-  "id_temp": "2025_02_03_08_55_31/12",
-  "Forma_de_pagamento": "Boleto",
-  "Banco": "",
-  "AG": "",
-  "N_Conta": "",
-  "Favorecido": "",
-  "pag_antecipado": true,
-  "Datas": [
-    {
-      "Numero_da_parcela": 12,
-      "Num_PDC_parcela": "78521/12",
-      "parcela_criada": true
-    }
-  ],
-  "Valor": "",
-  "": "",
-  "Numero_do_PDC": "78521/12",
-  "Perfil_responsavel": "Depto. Pessoal",
-  "Beneficiario": "FOLHA DE PAGAMENTO...",
-  "Valor_orcado": 833.33,
-  "Classificacao_contabil": [
-    {
-      "Conta_a_debitar": "CUSTEIO",
-      "Centro_de_custo": "3938561000088875003",
-      "Classe_operacional": "3938561000088875003",
-      "Valor": 416.66
-    },
-    {
-      "Conta_a_debitar": "CUSTEIO",
-      "Centro_de_custo": "3938561000085072254",
-      "Classe_operacional": "3938561000085070918",
-      "Valor": 416.66
-    }
-  ],
-  "INSS": 0,
-  "ISS": 0,
-  "PIS_COFINS_CSSL": 0,
-  "Desconto_comercial_ou_parcela": 0,
-  "Acrescimo_tarifa_bancaria": 0,
-  "Dados_da_nota_fiscal1": [
-    {
-      "Data_emissao_N_Fiscal": "",
-      "Numero_N_Fiscal": ""
-    }
-  ],
-  "Valor_original": 10000,
-  "Total_de_descontos": 0,
-  "Valor_total_a_pagar": 10000,
-  "Status_geral": "Enviado para checagem final"
-}
-save_utils.js:642 respPDC =>  {
-  "code": 3000,
-  "data": {
-    "ID": "3938561000090209294"
-  },
-  "message": "Data Added Successfully"
-}
-save_utils.js:565 ++++++++++SALVANDO COTAÇÃO++++++++++
-save_utils.js:566 status =>  Propostas criadas
-save_utils.js:567 sepPorParc =>  true
-save_utils.js:568 paramsExtraPDC =>  {}
-save_utils.js:571 => COTAÇÃO EXISTE <=
-save_utils.js:586 *É separação por parcela
-save_utils.js:591 *Marca que cotação não existe
-save_utils.js:565 ++++++++++SALVANDO COTAÇÃO++++++++++
-save_utils.js:566 status =>  Propostas criadas
-save_utils.js:567 sepPorParc =>  true
-save_utils.js:568 paramsExtraPDC =>  {}
-save_utils.js:595 => COTACAO NÃO EXISTE <=
-save_utils.js:16 ++++++++++CRIANDO DADOS DE CADA UMA DAS PARCELAS NÃO CRIADAS++++++++++
-save_utils.js:17 status =>  Propostas criadas
-save_utils.js:18 reqType =>  PRODUTO
-save_utils.js:19 pgtoAnt =>  false
-save_utils.js:22 advInstallment =>  false
-save_utils.js:32 numInstallments =>  12
-save_utils.js:35 => PEGANDO ARQUIVOS <=
-save_utils.js:37 => PEGANDO DADOS DA NF <=
-save_utils.js:309 ++++++++++BUSCANDO DADOS DA NOTA FISCAL++++++++++
-save_utils.js:357 dadosNF =>  {"INSS":0,"ISS":0,"PIS_COFINS_CSSL":0,"Desconto_comercial_ou_parcela":0,"Acrescimo_tarifa_bancaria":0,"Dados_da_nota_fiscal1":[{"Data_emissao_N_Fiscal":"","Numero_N_Fiscal":""}],"Valor_original":10000,"Total_de_descontos":0,"Valor_total_a_pagar":10000}
-save_utils.js:40 => PEGANDO DADOS DE PARCELAS <=
-save_utils.js:43 indexInstallment =>  0
-save_utils.js:45 isCreated =>  true
-save_utils.js:43 indexInstallment =>  1
-save_utils.js:45 isCreated =>  true
-save_utils.js:43 indexInstallment =>  2
-save_utils.js:45 isCreated =>  true
-save_utils.js:43 indexInstallment =>  3
-save_utils.js:45 isCreated =>  true
-save_utils.js:43 indexInstallment =>  4
-save_utils.js:45 isCreated =>  true
-save_utils.js:43 indexInstallment =>  5
-save_utils.js:45 isCreated =>  true
-save_utils.js:43 indexInstallment =>  6
-save_utils.js:45 isCreated =>  true
-save_utils.js:43 indexInstallment =>  7
-save_utils.js:45 isCreated =>  true
-save_utils.js:43 indexInstallment =>  8
-save_utils.js:45 isCreated =>  true
-save_utils.js:43 indexInstallment =>  9
-save_utils.js:45 isCreated =>  true
-save_utils.js:43 indexInstallment =>  10
-save_utils.js:45 isCreated =>  true
-save_utils.js:43 indexInstallment =>  11
-save_utils.js:45 isCreated =>  true
-save_utils.js:75 ----------DADOS CRIADOS, RETORNANDO MAPA----------
+lyte_files.de2450a38434e1c4801f279bb947c2ff.js:1 Conclusão do carregamento XHR: POST "https://guillaumon.zohocreatorportal.com/api/v2/guillaumon/app-envio-de-notas-boletos-guillaumon/form/PDC_Digital".
+XMLHttpRequest.send @ lyte_files.de2450a38434e1c4801f279bb947c2ff.js:1
+send @ jquery.586ebc8153c2550ef27f2ce2eb58b9c7.js:2
+ajax @ jquery.586ebc8153c2550ef27f2ce2eb58b9c7.js:2
+h @ widgetFramework.2433b2e4aa737cfe3ca114c6307889d9.js:72
+ADD_RECORD @ widgetFramework.2433b2e4aa737cfe3ca114c6307889d9.js:79
+y @ widgetFramework.2433b2e4aa737cfe3ca114c6307889d9.js:31
+h @ widgetFramework.2433b2e4aa737cfe3ca114c6307889d9.js:15
+lyte_files.de2450a38434e1c4801f279bb947c2ff.js:1 Conclusão do carregamento XHR: POST "https://guillaumon.zohocreatorportal.com/api/v2/guillaumon/app-envio-de-notas-boletos-guillaumon/form/cotacao_Laranjeiras".
+XMLHttpRequest.send @ lyte_files.de2450a38434e1c4801f279bb947c2ff.js:1
+send @ jquery.586ebc8153c2550ef27f2ce2eb58b9c7.js:2
+ajax @ jquery.586ebc8153c2550ef27f2ce2eb58b9c7.js:2
+h @ widgetFramework.2433b2e4aa737cfe3ca114c6307889d9.js:72
+ADD_RECORD @ widgetFramework.2433b2e4aa737cfe3ca114c6307889d9.js:79
+y @ widgetFramework.2433b2e4aa737cfe3ca114c6307889d9.js:31
+h @ widgetFramework.2433b2e4aa737cfe3ca114c6307889d9.js:15
+lyte_files.de2450a38434e1c4801f279bb947c2ff.js:1 Conclusão do carregamento XHR: GET "https://guillaumon.zohocreatorportal.com/guillaumon/app-envio-de-notas-boletos-guillaumon/report/Solicitacoes_em_andamento_DP?urlParams=%7B%7D".
+XMLHttpRequest.send @ lyte_files.de2450a38434e1c4801f279bb947c2ff.js:1
+send @ jquery.586ebc8153c2550ef27f2ce2eb58b9c7.js:2
+ajax @ jquery.586ebc8153c2550ef27f2ce2eb58b9c7.js:2
+(anónimo) @ livelib.908caa942f5cb818a4dbdacff66eb939.js:295
+Promise.then
+$.zcAjax @ livelib.908caa942f5cb818a4dbdacff66eb939.js:295
+r @ livelib.908caa942f5cb818a4dbdacff66eb939.js:1001
+(anónimo) @ livelib.908caa942f5cb818a4dbdacff66eb939.js:1012
+_LoadComponent @ livelib.908caa942f5cb818a4dbdacff66eb939.js:1012
+h @ livelib.908caa942f5cb818a4dbdacff66eb939.js:1033
+(anónimo) @ livelib.908caa942f5cb818a4dbdacff66eb939.js:1035
+dispatch @ jquery.586ebc8153c2550ef27f2ce2eb58b9c7.js:2
+v.handle @ jquery.586ebc8153c2550ef27f2ce2eb58b9c7.js:2
+hashchange
+_LoadScript @ livelib.908caa942f5cb818a4dbdacff66eb939.js:1017
+h @ livelib.908caa942f5cb818a4dbdacff66eb939.js:1032
+(anónimo) @ livelib.908caa942f5cb818a4dbdacff66eb939.js:1035
+dispatch @ jquery.586ebc8153c2550ef27f2ce2eb58b9c7.js:2
+v.handle @ jquery.586ebc8153c2550ef27f2ce2eb58b9c7.js:2
+wmsconnector.html?tabid=10086657745_CE_1739549508748_4196&wmsid=10086657745&nocache=1739549509174&frameorigin=https%3A%2F%2Fguillaumon.zohocreatorportal.com:11 Conclusão do carregamento XHR: GET "https://guillaumon.zohocreatorportal.com/wmssrv/wmsevent?c=CE:10086657745&i=NENQ0U6NDUwNDU4NTY3Mjk5MjgxMTI3MDoxMDA4NjY1Nzc0NTo2NDoxMDAxODk2MzA3Mw%253D%253D&xa=pm%252Fkq%252FfvUwoVH6UDqVZUUE9Npzii%252FlKblM98zG%252FRvLlaEAfi3HYIQZnDL57TBw6eTbTz8RT9mODcmrBmrQnXBNrB3iVYENI0qE70hVKFglJXUQoohn4BsYkqqyW4vekWo4DseXOct7s%253D&zaid=10018963073&useagent=true&publickey=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuzEmyZNZgjfgb1%2BjooKKvlZHtHKSkCgZ%2FO6EtgDLyoY9m3M3AJnwH3uhsem4LNOuywP0SpPAD3g8mXyBeRC8gnDiF8n4afSKEELkUkqxqpDeCT92B%2BsaMsYOxENzET0lkiCYszY0UX6V9OLcYJxwak0FHp%2B8KZYWWQLD3gd71zCAGWPc6jdgC9BvnVMciOiEninnXw1wf%2B85t6BVn3gVkofPNMpAMZ6fjMc6o1muV%2Bnklh9L3uXwpiC3tETpFk9JioApvNRv7vUV4JU3Ps466S6NFSMFVnc0rMjujeWzx%2B2bMG%2F2wIRdrhUndfIjy6CT1UfVmNPfuGobXmgcez2qCQIDAQAB&page_visible=true&nocache=1739549575616&tid=10086657745_CE_1739549508748_4196".
+getUrl @ wmsconnector.html?tabid=10086657745_CE_1739549508748_4196&wmsid=10086657745&nocache=1739549509174&frameorigin=https%3A%2F%2Fguillaumon.zohocreatorportal.com:11
+bind @ wmsconnector.html?tabid=10086657745_CE_1739549508748_4196&wmsid=10086657745&nocache=1739549509174&frameorigin=https%3A%2F%2Fguillaumon.zohocreatorportal.com:11
+(anónimo) @ wmsconnector.html?tabid=10086657745_CE_1739549508748_4196&wmsid=10086657745&nocache=1739549509174&frameorigin=https%3A%2F%2Fguillaumon.zohocreatorportal.com:11
+(anónimo) @ wmsconnector.html?tabid=10086657745_CE_1739549508748_4196&wmsid=10086657745&nocache=1739549509174&frameorigin=https%3A%2F%2Fguillaumon.zohocreatorportal.com:11

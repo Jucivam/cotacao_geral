@@ -906,6 +906,7 @@ export async function customModal_V2({ acao = null, tipoAcao = 'confirm', titulo
     if (tipoAcao === 'confirm') {
         cancelButton = createEl('button', 'customConfirm-cancelButton', cancelText);
         buttonContainer.append(cancelButton);
+
     }
 
     //==========ALTERNAR VISIBILIDADE DE ELEMENTOS==========\\
@@ -1077,7 +1078,7 @@ async function prepararParaSalvar(acao, infoInserida = null) {
                     "Lançado no orçamento"
         },
         confirmar_compra: {
-            status: tipoSolicitacao === 'SERVIÇO' || pgtoAnt ? 'Recebimento confirmado' : 'Compra realizada',
+            status: tipoSolicitacao === 'SERVIÇO' || pgtoAnt || globais.perfilResponsavel === "Controladoria"? 'Recebimento confirmado' : 'Compra realizada',
             sepPorParc: tipoSolicitacao === 'SERVIÇO' || pgtoAnt,
             paramsExtraPDC: { pag_antecipado: false }
         },
