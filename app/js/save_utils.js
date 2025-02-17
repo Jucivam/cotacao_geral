@@ -117,7 +117,7 @@ function pegarDadosPDC_V2(indiceParc = null, currTempPDC = null) {
     const log = true;
 
     if(log) console.log("++++++++++BUSCANDO DADOS DO PDC++++++++++");
-    //====================BUSCA OS DADOS INICIAIS DO PDC====================//
+    //====================BUSCA OS DADOS INICIAIS DO PDC====================\\
     if(log) console.log("=> BUSCANDO DADOS INICIAIS DO PDC <=");
     const formDdsInicais = document.querySelector('#dados-PDC');
     const dadosIniciaisPdc = {};
@@ -135,7 +135,7 @@ function pegarDadosPDC_V2(indiceParc = null, currTempPDC = null) {
     if(log) console.log("Nome: " + "id_temp" + ", Valor: " + JSON.stringify(dadosIniciaisPdc.id_temp));
 
 
-    //====================BUSCA OS DADOS DETALHES DO PDC====================//
+    //====================BUSCA OS DADOS DETALHES DO PDC====================\\
     if(log) console.log("=> BUSCANDO DETALHES DO PDC <=");
     const formDdsDetalhes = document.querySelector('#form-pagamento');
 
@@ -150,23 +150,24 @@ function pegarDadosPDC_V2(indiceParc = null, currTempPDC = null) {
         const numPDC = parcela.querySelector('input[name="Num_PDC_parcela"]');
         const parcCriada = parcela.querySelector('input[name="parcela_criada"]');
         
-
         const vencimentoObj = {};
         if (numParc?.textContent) {
             vencimentoObj["Numero_da_parcela"] = parseInt(numParc.textContent.match(/\d+/)[0]);
+
         }
         if (dataInput?.value) {
             const [ano, mes, dia] = dataInput.value.split('-');
             vencimentoObj["Vencimento_previsto"] = `${dia}/${mes}/${ano}`;
+
         }
         if (valorInput?.value) {
             vencimentoObj["Valor"] = converterStringParaDecimal(valorInput.value, qtdCssDecimais);
+
         }
         if (numPDC?.value) {
             vencimentoObj["Num_PDC_parcela"] = numPDC.value;
             
         }
-
         vencimentoObj["parcela_criada"] = indiceParc !== null || parcCriada?.checked?true:false;
 
         // Adiciona o objeto ao array apenas se tiver pelo menos uma propriedade
@@ -539,7 +540,7 @@ function getItemType(base64String) {
     };
   
     return match && (fileTypeMap[match[1]] || match[1]);
-  }
+}
 
 function getItemData(base64String) {
     const fileType = getItemType(base64String);
@@ -562,12 +563,9 @@ function getItemData(base64String) {
     return file;
 }
 
-
-
-
-//================================================================//
-//===========================SALVA TUDO===========================//
-//================================================================//
+//================================================================\\
+//===========================SALVA TUDO===========================\\
+//================================================================\\
 /**
  * Salva os dados da tab.
  * 
@@ -597,8 +595,8 @@ export async function saveTableData_V2({status = null, sepPorParc = false, param
                     }
                 };
                 await executar_apiZoho({ tipo: "atualizar_reg", ID: id, corpo: payload });
-            }
 
+            }
             globais.cotacaoExiste = false;
 
         } else {
@@ -606,7 +604,6 @@ export async function saveTableData_V2({status = null, sepPorParc = false, param
             globais.cotacaoExiste = false;
 
         }
-
         if(log) console.log("*Marca que cotação não existe");
         await saveTableData_V2({status, sepPorParc, paramsExtraPDC});
 
@@ -619,9 +616,9 @@ export async function saveTableData_V2({status = null, sepPorParc = false, param
         
         const apoioTipoAnt = globais.tipo;
         if (sepPorParc === true) globais.tipo = 'criar_pdc';
-        for (let i = 0; i < PDCsToSave.size; i++) {
 
-            //====================CRIA O REGISTRO DO PDC====================//
+        for (let i = 0; i < PDCsToSave.size; i++) {
+            //====================CRIA O REGISTRO DO PDC====================\\
             const chave = Array.from(PDCsToSave.keys())[i];
             const pdcData = PDCsToSave.get(chave);
             const dadostabPrecos = pdcData.priceTableData;
@@ -647,6 +644,7 @@ export async function saveTableData_V2({status = null, sepPorParc = false, param
                 };
 
                 respPDC = await executar_apiZoho({ tipo: "atualizar_reg", ID: globais.idPDC, corpo: payload, nomeR: globais.nomeRelPDC });
+
             } else {
                 if(log) console.log("É CRIAÇÃO DE PDC!");
                 if(log) console.log("DADOS DO PDC ===> ", JSON.stringify(dadosPDC, null, 2));
@@ -656,12 +654,12 @@ export async function saveTableData_V2({status = null, sepPorParc = false, param
                 if (respPDC.code === 3000) {
                     if (globais.idPDC === null) globais.idPDC = respPDC.data.ID; // Preenche globais.idPDC com o ID retornado
                     idNovoPDC = respPDC.data.ID;
-                }
 
+                }
             }
             if(log) console.log("respPDC => ", JSON.stringify(respPDC, null, 2));
 
-            //====================CRIA O REGISTRO DOS ARQUIVOS GALERIA================//
+            //====================CRIA O REGISTRO DOS ARQUIVOS GALERIA================\\
             const qtdFiles = sepPorParc === true ? Object.keys(arquivos).length : globais.arquivosGaleria.length;
 
             if (qtdFiles > 0) {

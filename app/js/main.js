@@ -47,6 +47,7 @@ class Globais {
             baseFornecedores: new Map(),
             baseCentrosCusto: new Map(),
             idsCotacao: new Array(),
+            userIP: null,
             arquivosGaleria: [],
             ...CONFIG.INITIAL_STATE,
             ...CONFIG.APPS
@@ -476,6 +477,10 @@ async function searchPageParams() {
             }
             if (params.pag) {
                 globais.pag = params.pag;
+            }
+            if(params.user_ip)
+            {
+                globais.userIP = params.user_ip;
             }
         }
     });

@@ -863,6 +863,7 @@ export async function customModal_V2({ acao = null, tipoAcao = 'confirm', titulo
     if (titulo) {
         popup.appendChild(createEl('h3', 'customConfirm-title', titulo));
     }
+    
     //==========DEFINE CONFIGURAÇÕES PARA CAMPO DE INPUT, CASO PRECISE==========\\
     const inputConfig = {
         'ajustar_cot': {
@@ -1054,12 +1055,53 @@ async function prepararParaSalvar(acao, infoInserida = null) {
     {
         stats_salvarCot = "Enviado para checagem final";
     }
+    
+    let apoio_paramExtras = {};
+    if(globais.pag === "criar_cotacao")
+    {
+        const data_atual = new Date();
+        let dia = String(data_atual.getDate()).padStart(2, '0');
+        const mesesAbreviados = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        let mes = String(data_atual.getMonth()).padStart(2, '0');
+        let ano = data_atual.getFullYear();
+        let hora = String(data_atual.getHours()).padStart(2, '0');
+        let minuto = String(data_atual.getMinutes()).padStart(2, '0');
+        let segundo = String(data_atual.getSeconds()).padStart(2, '0');
+
+        const data_atual_formatada = `${dia}-${mes}-${ano} ${hora}:${minuto}:${segundo}`;
+
+        apoio_paramExtras = {
+            Assinaturas: [
+                {
+                    IP: "",
+                    Funcao: "Auxiliar controladoria",
+                    Cargo: "Controladoria",
+                    Usuario: "Leatríce Rezende Motta",
+                    E_mail_usuario: "leatrice.rezende@gmail.com",
+                    Data_da_assinatura: data_atual_formatada
+                },
+                {
+                    Funcao: "Subsíndico",
+                    Cargo: "Administrativo",
+                    Usuario: "Igor Vieira Negri",
+                    E_mail_usuario: "igorvn81@gmail.com"
+                },
+                {
+                    Funcao: "Síndico",
+                    Cargo: "Administrativo",
+                    Usuario: "José Cirilo Ribeiro Pierre",
+                    E_mail_usuario: "cirilopierre@gmail.com"
+                }
+            ]
+        }
+    }
 
     const statusMap = {
         salvar_cot: {
-            status: stats_salvarCot    
+            status: stats_salvarCot,
+            paramsExtraPDC:apoio_paramExtras
         },
-        criar_cotacao: { status: globais.pag === "criar_numero_de_PDC" ? null : "Propostas criadas" },
+        criar_cotacao: {status: globais.pag === "criar_numero_de_PDC" ? null : "Propostas criadas"},
         editar_cot: { status: globais.pag === "criar_numero_de_PDC" ? null : "Propostas criadas" },
         corrigir_erros: { status: globais.pag === "criar_numero_de_PDC" ? null : "Propostas criadas" },
         solicitar_aprovacao_sindico: { status: "Aguardando aprovação de uma proposta" },
@@ -1200,9 +1242,10 @@ export function desabilitarCampos() {
         botoesParaManterHabilitados = ["add-parcela", "remover-parcela", "add-linha-nf", "remover-linha-nf"];//classe
         formsParaManterHabilitados = ["form-pagamento", "dados-nf", "form-classificacao"];//forms
     } else if (globais.pag === "criar_numero_de_PDC") {
-        camposParaManterHabilitados = ["Num_PDC_parcela"];
+        camposParaManterHabilitados = ["Num_PDC_parcela", ];
         botoesParaManterHabilitados = ["add-parcela", "remover-parcela"];
         formsParaManterHabilitados = ["form-classificacao"];
+        aTagsParaManterHabilitados = ["gallery-item"];
     }else if(globais.pag === "confirmar_compra")
     {
         formsParaManterHabilitados = ["form-pagamento"];//forms
