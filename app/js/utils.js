@@ -1203,6 +1203,9 @@ export function desabilitarCampos() {
         camposParaManterHabilitados = ["Num_PDC_parcela"];
         botoesParaManterHabilitados = ["add-parcela", "remover-parcela"];
         formsParaManterHabilitados = ["form-classificacao"];
+    }else if(globais.pag === "confirmar_compra")
+    {
+        formsParaManterHabilitados = ["form-pagamento"];//forms
     }
 
     // Seleciona todos os elementos de input, textarea e select

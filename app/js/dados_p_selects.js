@@ -37,7 +37,6 @@ export async function buscarFornecedores() {
     }
 
     try {
-
         const resp = await executar_apiZoho({
             tipo: "busc_reg_recursivo", 
             criterios: cFornecedores, 
