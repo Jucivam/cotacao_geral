@@ -1057,7 +1057,7 @@ async function prepararParaSalvar(acao, infoInserida = null) {
     }
     
     let apoio_paramExtras = {};
-    if(globais.pag === "criar_cotacao")
+    if(acao === "enviar_p_assinatura")
     {
         const data_atual = new Date();
         let dia = String(data_atual.getDate()).padStart(2, '0');
@@ -1068,12 +1068,12 @@ async function prepararParaSalvar(acao, infoInserida = null) {
         let minuto = String(data_atual.getMinutes()).padStart(2, '0');
         let segundo = String(data_atual.getSeconds()).padStart(2, '0');
 
-        const data_atual_formatada = `${dia}-${mes}-${ano} ${hora}:${minuto}:${segundo}`;
+        const data_atual_formatada = `${dia}/${mes}/${ano} ${hora}:${minuto}:${segundo}`;
 
         apoio_paramExtras = {
             Assinaturas: [
                 {
-                    IP: "",
+                    IP: globais.userIP,
                     Funcao: "Auxiliar controladoria",
                     Cargo: "Controladoria",
                     Usuario: "Leatríce Rezende Motta",
@@ -1094,12 +1094,12 @@ async function prepararParaSalvar(acao, infoInserida = null) {
                 }
             ]
         }
+         
     }
 
     const statusMap = {
         salvar_cot: {
-            status: stats_salvarCot,
-            paramsExtraPDC:apoio_paramExtras
+            status: stats_salvarCot
         },
         criar_cotacao: {status: globais.pag === "criar_numero_de_PDC" ? null : "Propostas criadas"},
         editar_cot: { status: globais.pag === "criar_numero_de_PDC" ? null : "Propostas criadas" },
@@ -1128,7 +1128,10 @@ async function prepararParaSalvar(acao, infoInserida = null) {
         solicitar_ajuste_ao_compras: { status: "Ajuste solicitado pós checagem", paramsExtraPDC: { Solicitacao_de_ajuste: infoInserida } },
         enviar_p_checagem_final: { status: "Enviado para checagem final"},
         tratar_control: { paramsExtraPDC: {Status_controladoria: "Tratado" } },
-        enviar_p_assinatura: { status: "Assinatura Confirmada Controladoria" },
+        enviar_p_assinatura: { 
+            status: "Assinatura Confirmada Controladoria",
+            paramsExtraPDC:apoio_paramExtras
+        },
         autorizar_pagamento_subsindico: { status: "Assinatura Confirmada Sub Sindico" },
         autorizar_pagamento_sindico: { status: "Assinatura Confirmada Sindico" },
         confirmar_todas_as_assinaturas: { status: "Autorizado para pagamento" },

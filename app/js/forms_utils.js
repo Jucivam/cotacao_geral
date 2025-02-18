@@ -863,11 +863,22 @@ export function atualizarValorTotalClassificacoes() {
         const totalRow = table.rows[table.rows.length - 2];
 
         const colIndex = Array.from(headerRow.cells).findIndex(cell => cell.dataset.id_forn === globais.idFornAprovado);
+        
+        const valorTotalGeral = document.getElementsByClassName("campos-ret-desc");
+
 
         if (colIndex !== -1) {
-            const valorTotalFornecedor = totalRow.cells[colIndex - 2].innerText;
 
-            let total = converterStringParaDecimal(valorTotalFornecedor).toFixed(2);
+            const valorTotalFornecedor = totalRow.cells[colIndex - 2].innerText;
+            let total = 0;
+            if(valorTotalGeral > 0)
+            {
+                total = converterStringParaDecimal(valorTotalGeral, 2);
+
+            }else{
+                total = converterStringParaDecimal(valorTotalFornecedor, 2);
+
+            }
 
             const valoresClassificacoes = document.querySelectorAll('#form-classificacao input[name="Valor"]');
             valoresClassificacoes.forEach(input => {
@@ -919,12 +930,6 @@ export function atualizarValorTotalClassificacoes() {
         labelTotal.classList.add('valor-diferente');
         labelTotal.classList.remove('valor-igual');
     }
-
-
-
-
-
-
 
 }
 
@@ -1067,6 +1072,7 @@ export function atualizarValorOrcado()
  * - Adiciona classes CSS para indicar se o total é igual ou diferente do esperado
  */
 export function atualizarValorTotalParcelas() {
+    const valorTotalGeral = document.getElementById('valor-total-pagar');
 
     const table = document.getElementById('priceTable');
     const headerRow = table.rows[0]; // Primeira linha do cabeçalho
@@ -1082,15 +1088,23 @@ export function atualizarValorTotalParcelas() {
             const valorTotalFornecedor = totalRow.cells[colIndex - 2].innerText; // +1 para pegar a célula correta
 
             const valoresParcelas = document.querySelectorAll('#camposData input[name="Valor"]');
+            
+            let total = 0;
+            if(valorTotalGeral.value > 0)
+            {
+                total = converterStringParaDecimal(labelTotal.value, 2);
 
-            let total = converterStringParaDecimal(valorTotalFornecedor).toFixed(2) || 0; // Inicializa o total com o valor do fornecedor aprovado
+            }else
+            {
+                total = converterStringParaDecimal(valorTotalFornecedor,2); // Inicializa o total com o valor do fornecedor aprovado
 
+            }
+                
             valoresParcelas.forEach(input => {
-                const valor = converterStringParaDecimal(input.value).toFixed(2) || 0;
+                const valor = converterStringParaDecimal(input.value, 2);
                 total -= valor; // Reduz o valor da parcela do total
-                total = total.toFixed(2);
             });
-            labelTotal.innerText = formatToBRL_V2(total);
+            labelTotal.innerText = formatToBRL_V2(total, 2);
 
             // Compara os valores
             if (total == 0) {
@@ -1187,6 +1201,8 @@ export function calcularValorTotalPagar() {
     // Atualiza o valor total a pagar com os acréscimos
     const valorTotalFinal = valorTotalPagar + totalAcrescimos;
     document.getElementById('valor-total-pagar').innerText = formatToBRL_V2(valorTotalFinal);
+    atualizarValorTotalClassificacoes();
+    atualizarValorTotalParcelas();
 }
 
 //==============================================//
